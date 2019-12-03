@@ -1,6 +1,13 @@
-package spring.qlbh.QUANLYBANHANG.model;
+package spring.qlbh.QUANLYBANHANG.entity;
 
-public class HangInfo {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="hang")
+public class Hang {
 	private int maHang;
 	private String tenHang;
 	private int donGia;
@@ -11,78 +18,71 @@ public class HangInfo {
 	private String ngaySX;
 	private String tGBaoHanh;
 	private String tTThem;
-	public HangInfo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	public HangInfo(int maHang, String tenHang, int donGia, String imageLink, float vAT, int maLoai, String nhaSX,
-			String ngaySX, String tGBaoHanh, String tTThem) {
-		super();
-		this.maHang = maHang;
-		this.tenHang = tenHang;
-		this.donGia = donGia;
-		this.imageLink = imageLink;
-		this.vAT = vAT;
-		this.maLoai = maLoai;
-		this.nhaSX = nhaSX;
-		this.ngaySX = ngaySX;
-		this.tGBaoHanh = tGBaoHanh;
-		this.tTThem = tTThem;
-	}
+	@Id
+	@Column(name="MAHANG")
 	public int getMaHang() {
 		return maHang;
 	}
 	public void setMaHang(int maHang) {
 		this.maHang = maHang;
 	}
+	@Column(name="TENHANG")
 	public String getTenHang() {
 		return tenHang;
 	}
 	public void setTenHang(String tenHang) {
 		this.tenHang = tenHang;
 	}
+	@Column(name="DONGIA")
 	public int getDonGia() {
 		return donGia;
 	}
 	public void setDonGia(int donGia) {
 		this.donGia = donGia;
 	}
+	@Column(name="IMAGELINK")
 	public String getImageLink() {
 		return imageLink;
 	}
 	public void setImageLink(String imageLink) {
 		this.imageLink = imageLink;
 	}
+	@Column(name="VAT")
 	public float getvAT() {
 		return vAT;
 	}
 	public void setvAT(float vAT) {
 		this.vAT = vAT;
 	}
+	@Column(name="MALOAI")
 	public int getMaLoai() {
 		return maLoai;
 	}
 	public void setMaLoai(int maLoai) {
 		this.maLoai = maLoai;
 	}
+	@Column(name="NHASX")
 	public String getNhaSX() {
 		return nhaSX;
 	}
 	public void setNhaSX(String nhaSX) {
 		this.nhaSX = nhaSX;
 	}
+	@Column(name="NGAYSX")
 	public String getNgaySX() {
 		return ngaySX;
 	}
 	public void setNgaySX(String ngaySX) {
 		this.ngaySX = ngaySX;
 	}
+	@Column(name="TGBAOHANH")
 	public String gettGBaoHanh() {
 		return tGBaoHanh;
 	}
 	public void settGBaoHanh(String tGBaoHanh) {
 		this.tGBaoHanh = tGBaoHanh;
 	}
+	@Column(name="TTTHEM")
 	public String gettTThem() {
 		return tTThem;
 	}

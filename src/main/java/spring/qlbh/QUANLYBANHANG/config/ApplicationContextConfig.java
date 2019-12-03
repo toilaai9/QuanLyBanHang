@@ -18,7 +18,11 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
+import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
+import spring.qlbh.QUANLYBANHANG.dao.impl.HangDAOImpl;
+import spring.qlbh.QUANLYBANHANG.dao.impl.LoaiHangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.UserDAOImpl;
 
 @Configuration
@@ -91,6 +95,14 @@ public class ApplicationContextConfig {
 	@Bean(name = "login")
 	public UserDAO check() {
 		return new UserDAOImpl();
+	}
+	@Bean(name="hang_DAO")
+	public HangDAO loadHang() {
+		return new HangDAOImpl();
+	}
+	@Bean(name="loai_hang_DAO")
+	public LoaiHangDAO loadMenu() {
+		return new LoaiHangDAOImpl();
 	}
 
 }
