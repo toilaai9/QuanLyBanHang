@@ -102,9 +102,10 @@
 					<h3 class="title">New Products</h3>
 					<div class="section-nav">
 						<ul class="section-tab-nav tab-nav">
-							<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>
+							<li><a data-toggle="tab" href="#tabAll">All</a></li>
 							<c:forEach items="${loaiHang }" var="lh">
-								<li><a data-toggle="tab" href="#tab1" >${lh.tenLoai }</a></li>
+								<li><a data-toggle="tab" href="#${lh.maLoai }">${lh.tenLoai }
+								</a></li>
 							</c:forEach>
 
 						</ul>
@@ -118,59 +119,357 @@
 				<div class="row">
 					<div class="products-tabs">
 						<!-- tab -->
-						<div id="tab1" class="tab-pane active">
-							<div class="products-slick" data-nav="#slick-nav-1">
-								<!-- product -->
-								<c:forEach items="${hang }" var="h">
-									<div class="product">
-										<div class="product-img">
-											<img
-												src="${pageContext.request.contextPath}/template/client/img/product01.png"
-												alt="">
-											<div class="product-label">
-												<span class="sale"></span> <span class="new"></span>
-											</div>
-										</div>
-										<div class="product-body">
-											<p class="product-category">Category</p>
-											<h3 class="product-name">
-												<a href="#">${h.tenHang }</a>
-											</h3>
-											<h4 class="product-price">
-												<fmt:formatNumber type="currency" value="${h.donGia }" />
-											</h4>
-											<div class="product-rating">
-												<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i>
-											</div>
-											<div class="product-btns">
-												<button class="add-to-wishlist">
-													<i class="fa fa-heart-o"></i><span class="tooltipp">add
-														to wishlist</span>
-												</button>
-												<button class="quick-view">
-													<i class="fa fa-eye"></i><span class="tooltipp">Xem
-														Chi Tiết</span>
-												</button>
-											</div>
-										</div>
-										<div class="add-to-cart">
-											<button class="add-to-cart-btn">
-												<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
-											</button>
+						<c:forEach items="${loaiHang}" var="lh" varStatus="i">
+							<c:choose>
+								<c:when test="${lh.maLoai == 1  }">
+									<!--  bh kiểm tra từng loại hàng  -->
+									<!-- laoij hang bang 1 thi load tivi  -->
+									<div id="${lh.maLoai }" class="tab-pane">
+										<!-- bo cai active di -->
+										<div class="products-slick" data-nav="#slick-nav-1">
+											<c:forEach items="${tivi }" var="tv">
+												<div class="product">
+													<div class="product-img">
+														<img
+															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															alt="">
+														<div class="product-label">
+															<span class="sale"></span> <span class="new"></span>
+														</div>
+													</div>
+													<div class="product-body">
+														<p class="product-category">Category</p>
+														<h3 class="product-name">
+															<a href="#">${tv.tenHang }</a>
+														</h3>
+														<h4 class="product-price">
+															<fmt:formatNumber type="currency" value="${tv.donGia }" />
+														</h4>
+														<div class="product-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i>
+														</div>
+														<div class="product-btns">
+															<button class="add-to-wishlist">
+																<i class="fa fa-heart-o"></i><span class="tooltipp">add
+																	to wishlist</span>
+															</button>
+															<button class="quick-view">
+																<i class="fa fa-eye"></i><span class="tooltipp">Xem
+																	Chi Tiết</span>
+															</button>
+														</div>
+													</div>
+													<div class="add-to-cart">
+														<button class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
+														</button>
+													</div>
+												</div>
+											</c:forEach>
 										</div>
 									</div>
-								</c:forEach>
-								<!-- /product -->
-							</div>
-							<div id="slick-nav-1" class="products-slick-nav"></div>
-						</div>
-						<!-- /tab -->
+
+								</c:when>
+
+								<c:when test="${lh.maLoai ==2 }">
+									<div id="${lh.maLoai }" class="tab-pane">
+										<!-- bo cai active di -->
+										<div class="products-slick" data-nav="#slick-nav-1">
+											<c:forEach items="${tainghe }" var="tn">
+												<div class="product">
+													<div class="product-img">
+														<img
+															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															alt="">
+														<div class="product-label">
+															<span class="sale"></span> <span class="new"></span>
+														</div>
+													</div>
+													<div class="product-body">
+														<p class="product-category">Category</p>
+														<h3 class="product-name">
+															<a href="#">${tn.tenHang }</a>
+														</h3>
+														<h4 class="product-price">
+															<fmt:formatNumber type="currency" value="${tn.donGia }" />
+														</h4>
+														<div class="product-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i>
+														</div>
+														<div class="product-btns">
+															<button class="add-to-wishlist">
+																<i class="fa fa-heart-o"></i><span class="tooltipp">add
+																	to wishlist</span>
+															</button>
+															<button class="quick-view">
+																<i class="fa fa-eye"></i><span class="tooltipp">Xem
+																	Chi Tiết</span>
+															</button>
+														</div>
+													</div>
+													<div class="add-to-cart">
+														<button class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
+														</button>
+													</div>
+												</div>
+											</c:forEach>
+										</div>
+									</div>
+								</c:when>
+								<c:when test="${lh.maLoai ==3 }">
+									<div id="${lh.maLoai }" class="tab-pane">
+										<!-- bo cai active di -->
+										<div class="products-slick" data-nav="#slick-nav-1">
+											<c:forEach items="${dienthoai }" var="dt">
+												<div class="product">
+													<div class="product-img">
+														<img
+															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															alt="">
+														<div class="product-label">
+															<span class="sale"></span> <span class="new"></span>
+														</div>
+													</div>
+													<div class="product-body">
+														<p class="product-category">Category</p>
+														<h3 class="product-name">
+															<a href="#">${dt.tenHang }</a>
+														</h3>
+														<h4 class="product-price">
+															<fmt:formatNumber type="currency" value="${dt.donGia }" />
+														</h4>
+														<div class="product-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i>
+														</div>
+														<div class="product-btns">
+															<button class="add-to-wishlist">
+																<i class="fa fa-heart-o"></i><span class="tooltipp">add
+																	to wishlist</span>
+															</button>
+															<button class="quick-view">
+																<i class="fa fa-eye"></i><span class="tooltipp">Xem
+																	Chi Tiết</span>
+															</button>
+														</div>
+													</div>
+													<div class="add-to-cart">
+														<button class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
+														</button>
+													</div>
+												</div>
+											</c:forEach>
+										</div>
+									</div>
+								</c:when>
+								<c:when test="${lh.maLoai ==4 }">
+									<div id="${lh.maLoai }" class="tab-pane">
+										<!-- bo cai active di -->
+										<div class="products-slick" data-nav="#slick-nav-1">
+											<c:forEach items="${maytinh }" var="mt">
+												<div class="product">
+													<div class="product-img">
+														<img
+															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															alt="">
+														<div class="product-label">
+															<span class="sale"></span> <span class="new"></span>
+														</div>
+													</div>
+													<div class="product-body">
+														<p class="product-category">Category</p>
+														<h3 class="product-name">
+															<a href="#">${mt.tenHang }</a>
+														</h3>
+														<h4 class="product-price">
+															<fmt:formatNumber type="currency" value="${mt.donGia }" />
+														</h4>
+														<div class="product-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i>
+														</div>
+														<div class="product-btns">
+															<button class="add-to-wishlist">
+																<i class="fa fa-heart-o"></i><span class="tooltipp">add
+																	to wishlist</span>
+															</button>
+															<button class="quick-view">
+																<i class="fa fa-eye"></i><span class="tooltipp">Xem
+																	Chi Tiết</span>
+															</button>
+														</div>
+													</div>
+													<div class="add-to-cart">
+														<button class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
+														</button>
+													</div>
+												</div>
+											</c:forEach>
+										</div>
+									</div>
+								</c:when>
+								<c:when test="${lh.maLoai ==7 }">
+									<div id="${lh.maLoai }" class="tab-pane">
+										<!-- bo cai active di -->
+										<div class="products-slick" data-nav="#slick-nav-1">
+											<c:forEach items="${tulanh }" var="tl">
+												<div class="product">
+													<div class="product-img">
+														<img
+															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															alt="">
+														<div class="product-label">
+															<span class="sale"></span> <span class="new"></span>
+														</div>
+													</div>
+													<div class="product-body">
+														<p class="product-category">Category</p>
+														<h3 class="product-name">
+															<a href="#">${tl.tenHang }</a>
+														</h3>
+														<h4 class="product-price">
+															<fmt:formatNumber type="currency" value="${tl.donGia }" />
+														</h4>
+														<div class="product-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i>
+														</div>
+														<div class="product-btns">
+															<button class="add-to-wishlist">
+																<i class="fa fa-heart-o"></i><span class="tooltipp">add
+																	to wishlist</span>
+															</button>
+															<button class="quick-view">
+																<i class="fa fa-eye"></i><span class="tooltipp">Xem
+																	Chi Tiết</span>
+															</button>
+														</div>
+													</div>
+													<div class="add-to-cart">
+														<button class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
+														</button>
+													</div>
+												</div>
+											</c:forEach>
+										</div>
+									</div>
+								</c:when>
+								<c:when test="${lh.maLoai ==9 }">
+									<div id="${lh.maLoai }" class="tab-pane">
+										<!-- bo cai active di -->
+										<div class="products-slick" data-nav="#slick-nav-1">
+											<c:forEach items="${mayquat }" var="mq">
+												<div class="product">
+													<div class="product-img">
+														<img
+															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															alt="">
+														<div class="product-label">
+															<span class="sale"></span> <span class="new"></span>
+														</div>
+													</div>
+													<div class="product-body">
+														<p class="product-category">Category</p>
+														<h3 class="product-name">
+															<a href="#">${mq.tenHang }</a>
+														</h3>
+														<h4 class="product-price">
+															<fmt:formatNumber type="currency" value="${mq.donGia }" />
+														</h4>
+														<div class="product-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i>
+														</div>
+														<div class="product-btns">
+															<button class="add-to-wishlist">
+																<i class="fa fa-heart-o"></i><span class="tooltipp">add
+																	to wishlist</span>
+															</button>
+															<button class="quick-view">
+																<i class="fa fa-eye"></i><span class="tooltipp">Xem
+																	Chi Tiết</span>
+															</button>
+														</div>
+													</div>
+													<div class="add-to-cart">
+														<button class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
+														</button>
+													</div>
+												</div>
+											</c:forEach>
+										</div>
+									</div>
+								</c:when>
+								<c:otherwise>
+									<div id="tabAll" class="tab-pane active">
+										<div class="products-slick" data-nav="#slick-nav-1">
+											<c:forEach items="${hang }" var="h">
+												<div class="product">
+													<div class="product-img">
+														<img
+															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															alt="">
+														<div class="product-label">
+															<span class="sale"></span> <span class="new"></span>
+														</div>
+													</div>
+													<div class="product-body">
+														<p class="product-category">Category</p>
+														<h3 class="product-name">
+															<a href="#">${h.tenHang }</a>
+														</h3>
+														<h4 class="product-price">
+															<fmt:formatNumber type="currency" value="${h.donGia }" />
+														</h4>
+														<div class="product-rating">
+															<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i> <i class="fa fa-star"></i> <i
+																class="fa fa-star"></i>
+														</div>
+														<div class="product-btns">
+															<button class="add-to-wishlist">
+																<i class="fa fa-heart-o"></i><span class="tooltipp">add
+																	to wishlist</span>
+															</button>
+															<button class="quick-view">
+																<i class="fa fa-eye"></i><span class="tooltipp">Xem
+																	Chi Tiết</span>
+															</button>
+														</div>
+													</div>
+													<div class="add-to-cart">
+														<button class="add-to-cart-btn">
+															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
+														</button>
+													</div>
+												</div>
+											</c:forEach>
+
+										</div>
+										<div id="slick-nav-1" class="products-slick-nav"></div>
+									</div>
+
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+
 					</div>
 				</div>
 			</div>
-			<!-- Products tab & slick -->
+
 		</div>
 		<!-- /row -->
 	</div>

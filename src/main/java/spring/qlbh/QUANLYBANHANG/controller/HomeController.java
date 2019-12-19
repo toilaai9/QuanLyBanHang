@@ -2,9 +2,6 @@ package spring.qlbh.QUANLYBANHANG.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +11,9 @@ import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.model.HangInfo;
 import spring.qlbh.QUANLYBANHANG.model.LoaiHangInfo;
+
+
+
 
 
 @Controller
@@ -36,19 +36,24 @@ public class HomeController {
 	@RequestMapping("/")
 	public String indexPage(Model model) {
 		List<HangInfo> hang = hangDAO.loadHang();
+		
 		List<LoaiHangInfo> loaiHang =loaiHangDAO.loadMenu();
-		model.addAttribute("hang", hang);
-		model.addAttribute("loaiHang", loaiHang);
-		return "Index";
-	}
-	// hai cái đều trỏ về một cái là / thì nó nhận cái nào....
-	// một là xóa hai là thay đổi 1 trong 2
-	
-	
-	@RequestMapping("/loai")
-	public String loadMenuLoai(Model model) {
-		List<HangInfo> hang = hangDAO.loadHang();
-		List<LoaiHangInfo> loaiHang =loaiHangDAO.loadMenu();
+		List<HangInfo> hangTivi = hangDAO.loadHangTheoLoai(1);
+		List<HangInfo> hangTaiNghe = hangDAO.loadHangTheoLoai(2);
+		List<HangInfo> hangDienThoai = hangDAO.loadHangTheoLoai(3);
+		List<HangInfo> hangMayTinh = hangDAO.loadHangTheoLoai(4);
+		List<HangInfo> hangTuLanh = hangDAO.loadHangTheoLoai(7);
+		List<HangInfo> hangMayQuat = hangDAO.loadHangTheoLoai(9);
+		
+		// cái nào ông load all hàng ?
+		//rồi
+		
+		model.addAttribute("tivi", hangTivi);
+		model.addAttribute("tainghe", hangTaiNghe);
+		model.addAttribute("dienthoai", hangDienThoai);
+		model.addAttribute("maytinh", hangMayTinh);
+		model.addAttribute("tulanh", hangTuLanh);
+		model.addAttribute("mayquat", hangMayQuat);
 		model.addAttribute("hang", hang);
 		model.addAttribute("loaiHang", loaiHang);
 		return "Index";
