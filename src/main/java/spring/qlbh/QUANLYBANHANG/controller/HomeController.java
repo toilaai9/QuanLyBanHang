@@ -45,7 +45,7 @@ public class HomeController {
 	// một là xóa hai là thay đổi 1 trong 2
 	
 	
-	@RequestMapping("/")
+	@RequestMapping("/loai")
 	public String loadMenuLoai(Model model) {
 		List<HangInfo> hang = hangDAO.loadHang();
 		List<LoaiHangInfo> loaiHang =loaiHangDAO.loadMenu();
