@@ -26,7 +26,7 @@ import spring.qlbh.QUANLYBANHANG.dao.impl.LoaiHangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.UserDAOImpl;
 
 @Configuration
-@ComponentScan(" spring.qlbh.QUANLYBANHANG.*")
+@ComponentScan("spring.qlbh.QUANLYBANHANG.*")
 @EnableTransactionManagement
 //Load to Environment.
 @PropertySource("classpath:ds-hibernate-cfg.properties")
