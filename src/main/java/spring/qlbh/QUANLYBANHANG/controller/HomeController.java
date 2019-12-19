@@ -41,6 +41,10 @@ public class HomeController {
 		model.addAttribute("loaiHang", loaiHang);
 		return "Index";
 	}
+	// hai cái đều trỏ về một cái là / thì nó nhận cái nào....
+	// một là xóa hai là thay đổi 1 trong 2
+	
+	
 	@RequestMapping("/")
 	public String loadMenuLoai(Model model) {
 		List<HangInfo> hang = hangDAO.loadHang();
