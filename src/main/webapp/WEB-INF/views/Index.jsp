@@ -3,91 +3,7 @@
 <%@ include file="/common/taglib.jsp"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!-- NAVIGATION -->
-<nav id="navigation">
-	<!-- container -->
-	<div class="container">
-		<!-- responsive-nav -->
-		<div id="responsive-nav">
-			<!-- NAV -->
-			<ul class="main-nav nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Hot Deals</a></li>
-				<li><a href="#">Categories</a></li>
-				<li><a href="#">Laptops</a></li>
-				<li><a href="#">Smartphones</a></li>
-				<li><a href="#">Cameras</a></li>
-				<li><a href="#">Accessories</a></li>
-			</ul>
-			<!-- /NAV -->
-		</div>
-		<!-- /responsive-nav -->
-	</div>
-	<!-- /container -->
-</nav>
-<!-- /NAVIGATION -->
 
-<!-- SECTION -->
-<div class="section">
-	<!-- container -->
-	<div class="container">
-		<!-- row -->
-		<div class="row">
-			<!-- shop -->
-			<div class="col-md-4 col-xs-6">
-				<div class="shop">
-					<div class="shop-img">
-						<img src="./img/shop01.png" alt="">
-					</div>
-					<div class="shop-body">
-						<h3>
-							Laptop<br>Collection
-						</h3>
-						<a href="#" class="cta-btn">Shop now <i
-							class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<!-- /shop -->
-
-			<!-- shop -->
-			<div class="col-md-4 col-xs-6">
-				<div class="shop">
-					<div class="shop-img">
-						<img src="./img/shop03.png" alt="">
-					</div>
-					<div class="shop-body">
-						<h3>
-							Accessories<br>Collection
-						</h3>
-						<a href="#" class="cta-btn">Shop now <i
-							class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<!-- /shop -->
-
-			<!-- shop -->
-			<div class="col-md-4 col-xs-6">
-				<div class="shop">
-					<div class="shop-img">
-						<img src="./img/shop02.png" alt="">
-					</div>
-					<div class="shop-body">
-						<h3>
-							Cameras<br>Collection
-						</h3>
-						<a href="#" class="cta-btn">Shop now <i
-							class="fa fa-arrow-circle-right"></i></a>
-					</div>
-				</div>
-			</div>
-			<!-- /shop -->
-		</div>
-		<!-- /row -->
-	</div>
-	<!-- /container -->
-</div>
-<!-- /SECTION -->
 
 <!-- SECTION -->
 <div class="section">
@@ -102,7 +18,7 @@
 					<h3 class="title">New Products</h3>
 					<div class="section-nav">
 						<ul class="section-tab-nav tab-nav">
-							<li><a data-toggle="tab" href="#tabAll">All</a></li>
+							<li class="active"><a data-toggle="tab" href="#tabAll">All</a></li>
 							<c:forEach items="${loaiHang }" var="lh">
 								<li><a data-toggle="tab" href="#${lh.maLoai }">${lh.tenLoai }
 								</a></li>
@@ -140,7 +56,7 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="#">${tv.tenHang }</a>
+															<a href="${pageContext.request.contextPath}/chitiet?id=${tv.maHang}">${tv.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${tv.donGia }" />
@@ -190,7 +106,7 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="#">${tn.tenHang }</a>
+															<a href="${pageContext.request.contextPath}/chitiet?id=${tn.maHang}">${tn.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${tn.donGia }" />
@@ -238,7 +154,7 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="#">${dt.tenHang }</a>
+															<a href="${pageContext.request.contextPath}/chitiet?id=${dt.maHang}">${dt.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${dt.donGia }" />
@@ -286,7 +202,7 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="#">${mt.tenHang }</a>
+															<a href="${pageContext.request.contextPath}/chitiet?id=${mt.maHang}">${mt.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${mt.donGia }" />
@@ -334,7 +250,7 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="#">${tl.tenHang }</a>
+															<a href="${pageContext.request.contextPath}/chitiet?id=${tl.maHang}">${tl.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${tl.donGia }" />
@@ -363,11 +279,11 @@
 												</div>
 											</c:forEach>
 										</div>
+										<div id="slick-nav-1" class="products-slick-nav"></div>
 									</div>
 								</c:when>
 								<c:when test="${lh.maLoai ==9 }">
 									<div id="${lh.maLoai }" class="tab-pane">
-										<!-- bo cai active di -->
 										<div class="products-slick" data-nav="#slick-nav-1">
 											<c:forEach items="${mayquat }" var="mq">
 												<div class="product">
@@ -382,7 +298,7 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="#">${mq.tenHang }</a>
+															<a href="${pageContext.request.contextPath}/chitiet?id=${mq.maHang}">${mq.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${mq.donGia }" />
@@ -411,6 +327,7 @@
 												</div>
 											</c:forEach>
 										</div>
+										<div id="slick-nav-1" class="products-slick-nav"></div>
 									</div>
 								</c:when>
 								<c:otherwise>
@@ -429,7 +346,7 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="#">${h.tenHang }</a>
+															<a href="${pageContext.request.contextPath}/chitiet?id=${h.maHang}">${h.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${h.donGia }" />
@@ -461,7 +378,6 @@
 										</div>
 										<div id="slick-nav-1" class="products-slick-nav"></div>
 									</div>
-
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -538,118 +454,8 @@
 					</div>
 				</div>
 
-				<div class="products-widget-slick" data-nav="#slick-nav-3">
-					<div>
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product07.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product08.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product09.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- product widget -->
-					</div>
-
-					<div>
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product01.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product02.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product03.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- product widget -->
-					</div>
+				
+					<div></div>
 				</div>
 			</div>
 
