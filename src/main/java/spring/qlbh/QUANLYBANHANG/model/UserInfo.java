@@ -1,5 +1,8 @@
 package spring.qlbh.QUANLYBANHANG.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 public class UserInfo {
 	private int id;
 	private String userName;
@@ -9,6 +12,15 @@ public class UserInfo {
 	private String diaChi;
 	private String sDT;
 	private String loai;
+<<<<<<< HEAD
+=======
+	
+	public UserInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+>>>>>>> de5e5e7214707d93b8c81615cf624b4ccdc44095
 	public UserInfo(int id, String userName, String passWord, String hoTen, String imageLink, String diaChi, String sDT,
 			String loai) {
 		super();
@@ -21,6 +33,7 @@ public class UserInfo {
 		this.sDT = sDT;
 		this.loai = loai;
 	}
+<<<<<<< HEAD
 	public int getId() {
 		return id;
 	}
@@ -73,4 +86,72 @@ public class UserInfo {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+=======
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassWord() {
+		return passWord;
+	}
+
+	public void setPassWord(String passWord) {
+		this.passWord = passWord;
+	}
+
+	public String getHoTen() {
+		return hoTen;
+	}
+
+	public void setHoTen(String hoTen) {
+		this.hoTen = hoTen;
+	}
+
+	public String getImageLink() {
+		return imageLink;
+	}
+
+	public void setImageLink(String imageLink) {
+		this.imageLink = imageLink;
+	}
+
+	public String getDiaChi() {
+		return diaChi;
+	}
+
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
+	}
+
+	public String getsDT() {
+		return sDT;
+	}
+
+	public void setsDT(String sDT) {
+		this.sDT = sDT;
+	}
+
+	public String getLoai() {
+		return loai;
+	}
+
+	public void setLoai(String loai) {
+		this.loai = loai;
+	}
+	
+	
+>>>>>>> de5e5e7214707d93b8c81615cf624b4ccdc44095
 }

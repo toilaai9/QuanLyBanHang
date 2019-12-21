@@ -47,7 +47,7 @@
 												<div class="product">
 													<div class="product-img">
 														<img
-															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															src="${pageContext.request.contextPath}/template/client/img/${tv.imageLink }"
 															alt="">
 														<div class="product-label">
 															<span class="sale"></span> <span class="new"></span>
@@ -56,7 +56,8 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="${pageContext.request.contextPath}/chitiet?id=${tv.maHang}">${tv.tenHang }</a>
+															<a
+																href="${pageContext.request.contextPath}/chitiet?id=${tv.maHang}">${tv.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${tv.donGia }" />
@@ -71,10 +72,14 @@
 																<i class="fa fa-heart-o"></i><span class="tooltipp">add
 																	to wishlist</span>
 															</button>
+
 															<button class="quick-view">
-																<i class="fa fa-eye"></i><span class="tooltipp">Xem
-																	Chi Tiết</span>
+																<a
+																	href="${pageContext.request.contextPath}/chitiet?id=${tv.maHang}"><i
+																	class="fa fa-eye"></i><span class="tooltipp">Xem
+																		Chi Tiết</span></a>
 															</button>
+
 														</div>
 													</div>
 													<div class="add-to-cart">
@@ -97,7 +102,7 @@
 												<div class="product">
 													<div class="product-img">
 														<img
-															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															src="${pageContext.request.contextPath}/template/client/img/${tn.imageLink }"
 															alt="">
 														<div class="product-label">
 															<span class="sale"></span> <span class="new"></span>
@@ -106,7 +111,8 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="${pageContext.request.contextPath}/chitiet?id=${tn.maHang}">${tn.tenHang }</a>
+															<a
+																href="${pageContext.request.contextPath}/chitiet?id=${tn.maHang}">${tn.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${tn.donGia }" />
@@ -121,10 +127,14 @@
 																<i class="fa fa-heart-o"></i><span class="tooltipp">add
 																	to wishlist</span>
 															</button>
+
 															<button class="quick-view">
-																<i class="fa fa-eye"></i><span class="tooltipp">Xem
-																	Chi Tiết</span>
+																<a
+																	href="${pageContext.request.contextPath}/chitiet?id=${tn.maHang}"><i
+																	class="fa fa-eye"></i><span class="tooltipp">Xem
+																		Chi Tiết</span></a>
 															</button>
+
 														</div>
 													</div>
 													<div class="add-to-cart">
@@ -145,7 +155,7 @@
 												<div class="product">
 													<div class="product-img">
 														<img
-															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															src="${pageContext.request.contextPath}/template/client/img/${dt.imageLink }"
 															alt="">
 														<div class="product-label">
 															<span class="sale"></span> <span class="new"></span>
@@ -154,7 +164,8 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="${pageContext.request.contextPath}/chitiet?id=${dt.maHang}">${dt.tenHang }</a>
+															<a
+																href="${pageContext.request.contextPath}/chitiet?id=${dt.maHang}">${dt.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${dt.donGia }" />
@@ -169,10 +180,14 @@
 																<i class="fa fa-heart-o"></i><span class="tooltipp">add
 																	to wishlist</span>
 															</button>
+
 															<button class="quick-view">
-																<i class="fa fa-eye"></i><span class="tooltipp">Xem
-																	Chi Tiết</span>
+																<a
+																	href="${pageContext.request.contextPath}/chitiet?id=${dt.maHang}"><i
+																	class="fa fa-eye"></i><span class="tooltipp">Xem
+																		Chi Tiết</span></a>
 															</button>
+
 														</div>
 													</div>
 													<div class="add-to-cart">
@@ -193,7 +208,7 @@
 												<div class="product">
 													<div class="product-img">
 														<img
-															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															src="${pageContext.request.contextPath}/template/client/img/${mt.imageLink }"
 															alt="">
 														<div class="product-label">
 															<span class="sale"></span> <span class="new"></span>
@@ -202,7 +217,8 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="${pageContext.request.contextPath}/chitiet?id=${mt.maHang}">${mt.tenHang }</a>
+															<a
+																href="${pageContext.request.contextPath}/chitiet?id=${mt.maHang}">${mt.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${mt.donGia }" />
@@ -217,10 +233,14 @@
 																<i class="fa fa-heart-o"></i><span class="tooltipp">add
 																	to wishlist</span>
 															</button>
+
 															<button class="quick-view">
-																<i class="fa fa-eye"></i><span class="tooltipp">Xem
-																	Chi Tiết</span>
+																<a
+																	href="${pageContext.request.contextPath}/chitiet?id=${mt.maHang}"><i
+																	class="fa fa-eye"></i><span class="tooltipp">Xem
+																		Chi Tiết</span></a>
 															</button>
+
 														</div>
 													</div>
 													<div class="add-to-cart">
@@ -241,7 +261,7 @@
 												<div class="product">
 													<div class="product-img">
 														<img
-															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															src="${pageContext.request.contextPath}/template/client/img/${tl.imageLink }"
 															alt="">
 														<div class="product-label">
 															<span class="sale"></span> <span class="new"></span>
@@ -250,7 +270,8 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="${pageContext.request.contextPath}/chitiet?id=${tl.maHang}">${tl.tenHang }</a>
+															<a
+																href="${pageContext.request.contextPath}/chitiet?id=${tl.maHang}">${tl.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${tl.donGia }" />
@@ -265,10 +286,14 @@
 																<i class="fa fa-heart-o"></i><span class="tooltipp">add
 																	to wishlist</span>
 															</button>
+
 															<button class="quick-view">
-																<i class="fa fa-eye"></i><span class="tooltipp">Xem
-																	Chi Tiết</span>
+																<a
+																	href="${pageContext.request.contextPath}/chitiet?id=${tl.maHang}"><i
+																	class="fa fa-eye"></i><span class="tooltipp">Xem
+																		Chi Tiết</span></a>
 															</button>
+
 														</div>
 													</div>
 													<div class="add-to-cart">
@@ -279,7 +304,7 @@
 												</div>
 											</c:forEach>
 										</div>
-										<div id="slick-nav-1" class="products-slick-nav"></div>
+							
 									</div>
 								</c:when>
 								<c:when test="${lh.maLoai ==9 }">
@@ -289,7 +314,7 @@
 												<div class="product">
 													<div class="product-img">
 														<img
-															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															src="${pageContext.request.contextPath}/template/client/img/${mq.imageLink }"
 															alt="">
 														<div class="product-label">
 															<span class="sale"></span> <span class="new"></span>
@@ -298,7 +323,8 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="${pageContext.request.contextPath}/chitiet?id=${mq.maHang}">${mq.tenHang }</a>
+															<a
+																href="${pageContext.request.contextPath}/chitiet?id=${mq.maHang}">${mq.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${mq.donGia }" />
@@ -313,10 +339,14 @@
 																<i class="fa fa-heart-o"></i><span class="tooltipp">add
 																	to wishlist</span>
 															</button>
+
 															<button class="quick-view">
-																<i class="fa fa-eye"></i><span class="tooltipp">Xem
-																	Chi Tiết</span>
+																<a
+																	href="${pageContext.request.contextPath}/chitiet?id=${mq.maHang}"><i
+																	class="fa fa-eye"></i><span class="tooltipp">Xem
+																		Chi Tiết</span></a>
 															</button>
+
 														</div>
 													</div>
 													<div class="add-to-cart">
@@ -327,7 +357,6 @@
 												</div>
 											</c:forEach>
 										</div>
-										<div id="slick-nav-1" class="products-slick-nav"></div>
 									</div>
 								</c:when>
 								<c:otherwise>
@@ -337,7 +366,7 @@
 												<div class="product">
 													<div class="product-img">
 														<img
-															src="${pageContext.request.contextPath}/template/client/img/product01.png"
+															src="${pageContext.request.contextPath}/template/client/img/${h.imageLink }"
 															alt="">
 														<div class="product-label">
 															<span class="sale"></span> <span class="new"></span>
@@ -346,7 +375,8 @@
 													<div class="product-body">
 														<p class="product-category">Category</p>
 														<h3 class="product-name">
-															<a href="${pageContext.request.contextPath}/chitiet?id=${h.maHang}">${h.tenHang }</a>
+															<a
+																href="${pageContext.request.contextPath}/chitiet?id=${h.maHang}">${h.tenHang }</a>
 														</h3>
 														<h4 class="product-price">
 															<fmt:formatNumber type="currency" value="${h.donGia }" />
@@ -361,12 +391,17 @@
 																<i class="fa fa-heart-o"></i><span class="tooltipp">add
 																	to wishlist</span>
 															</button>
+
 															<button class="quick-view">
-																<i class="fa fa-eye"></i><span class="tooltipp">Xem
-																	Chi Tiết</span>
+																<a
+																	href="${pageContext.request.contextPath}/chitiet?id=${h.maHang}"><i
+																	class="fa fa-eye"></i><span class="tooltipp">Xem
+																		Chi Tiết</span></a>
 															</button>
+
 														</div>
 													</div>
+
 													<div class="add-to-cart">
 														<button class="add-to-cart-btn">
 															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
@@ -376,11 +411,12 @@
 											</c:forEach>
 
 										</div>
-										<div id="slick-nav-1" class="products-slick-nav"></div>
+										
 									</div>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
+						<div id="slick-nav-1" class="products-slick-nav"></div>
 
 					</div>
 				</div>
@@ -454,263 +490,263 @@
 					</div>
 				</div>
 
-				
-					<div></div>
-				</div>
+
+				<div></div>
 			</div>
-
-			<div class="col-md-4 col-xs-6">
-				<div class="section-title">
-					<h4 class="title">Top selling</h4>
-					<div class="section-nav">
-						<div id="slick-nav-4" class="products-slick-nav"></div>
-					</div>
-				</div>
-
-				<div class="products-widget-slick" data-nav="#slick-nav-4">
-					<div>
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product04.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product05.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product06.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- product widget -->
-					</div>
-
-					<div>
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product07.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product08.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product09.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- product widget -->
-					</div>
-				</div>
-			</div>
-
-			<div class="clearfix visible-sm visible-xs"></div>
-
-			<div class="col-md-4 col-xs-6">
-				<div class="section-title">
-					<h4 class="title">Top selling</h4>
-					<div class="section-nav">
-						<div id="slick-nav-5" class="products-slick-nav"></div>
-					</div>
-				</div>
-
-				<div class="products-widget-slick" data-nav="#slick-nav-5">
-					<div>
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product01.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product02.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product03.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- product widget -->
-					</div>
-
-					<div>
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product04.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product05.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- /product widget -->
-
-						<!-- product widget -->
-						<div class="product-widget">
-							<div class="product-img">
-								<img src="./img/product06.png" alt="">
-							</div>
-							<div class="product-body">
-								<p class="product-category">Category</p>
-								<h3 class="product-name">
-									<a href="#">product name goes here</a>
-								</h3>
-								<h4 class="product-price">
-									$980.00
-									<del class="product-old-price">$990.00</del>
-								</h4>
-							</div>
-						</div>
-						<!-- product widget -->
-					</div>
-				</div>
-			</div>
-
 		</div>
-		<!-- /row -->
+
+		<div class="col-md-4 col-xs-6">
+			<div class="section-title">
+				<h4 class="title">Top selling</h4>
+				<div class="section-nav">
+					<div id="slick-nav-4" class="products-slick-nav"></div>
+				</div>
+			</div>
+
+			<div class="products-widget-slick" data-nav="#slick-nav-4">
+				<div>
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product04.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- /product widget -->
+
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product05.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- /product widget -->
+
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product06.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- product widget -->
+				</div>
+
+				<div>
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product07.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- /product widget -->
+
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product08.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- /product widget -->
+
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product09.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- product widget -->
+				</div>
+			</div>
+		</div>
+
+		<div class="clearfix visible-sm visible-xs"></div>
+
+		<div class="col-md-4 col-xs-6">
+			<div class="section-title">
+				<h4 class="title">Top selling</h4>
+				<div class="section-nav">
+					<div id="slick-nav-5" class="products-slick-nav"></div>
+				</div>
+			</div>
+
+			<div class="products-widget-slick" data-nav="#slick-nav-5">
+				<div>
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product01.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- /product widget -->
+
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product02.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- /product widget -->
+
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product03.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- product widget -->
+				</div>
+
+				<div>
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product04.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- /product widget -->
+
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product05.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- /product widget -->
+
+					<!-- product widget -->
+					<div class="product-widget">
+						<div class="product-img">
+							<img src="./img/product06.png" alt="">
+						</div>
+						<div class="product-body">
+							<p class="product-category">Category</p>
+							<h3 class="product-name">
+								<a href="#">product name goes here</a>
+							</h3>
+							<h4 class="product-price">
+								$980.00
+								<del class="product-old-price">$990.00</del>
+							</h4>
+						</div>
+					</div>
+					<!-- product widget -->
+				</div>
+			</div>
+		</div>
+
 	</div>
-	<!-- /container -->
+	<!-- /row -->
+</div>
+<!-- /container -->
 </div>
 <!-- /SECTION -->
 

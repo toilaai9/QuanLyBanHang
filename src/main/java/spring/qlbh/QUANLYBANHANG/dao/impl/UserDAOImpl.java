@@ -12,6 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
 import spring.qlbh.QUANLYBANHANG.entity.User;
 import spring.qlbh.QUANLYBANHANG.model.UserInfo;
+<<<<<<< HEAD
+=======
+
+>>>>>>> de5e5e7214707d93b8c81615cf624b4ccdc44095
 
 public class UserDaoImpl implements UserDAO {
 
@@ -19,6 +23,7 @@ public class UserDaoImpl implements UserDAO {
 	private SessionFactory sessionFactory;
 
 	@Override
+<<<<<<< HEAD
 	public List<UserInfo> loadUser() {
 		Session session = this.sessionFactory.getCurrentSession();
 		String sql = " select new " + UserInfo.class.getName() 
@@ -42,6 +47,18 @@ public class UserDaoImpl implements UserDAO {
 		if (user != null) {
 			this.sessionFactory.getCurrentSession().delete(user);
 		}
-	}
+=======
+	public UserInfo checkLogin(String userName, String passWord) {
+		Session se = this.sessionfactory.getCurrentSession();
 
+		String sql = " Select new " + UserInfo.class.getName()
+				+ "(u.id, u.userName, u.passWord, u.hoTen, u.imagelink, u.diaChi, u.sDT, u.loai)" + " from "
+				+ User.class.getName() + " u where USERNAME =: us and PASSWORD =: pw";
+
+		Query query = se.createQuery(sql);
+		query.setParameter("us", userName);
+		query.setParameter("pw",passWord);
+		return (UserInfo) query.uniqueResult();
+>>>>>>> de5e5e7214707d93b8c81615cf624b4ccdc44095
+	}
 }

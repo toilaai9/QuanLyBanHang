@@ -14,8 +14,59 @@
 						Stonecoal Road</a></li>
 			</ul>
 			<ul class="header-links pull-right">
-				<li><a href="#"><i class="fa fa-user-o" visibility="hidden"></i>
-						Đăng nhập</a></li>
+				<li>
+					<div class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown"
+							aria-expanded="true"> <i class="fa fa-user-o"
+							visibility="hidden"></i>Login
+
+						</a>
+						<div class="cart-dropdown">
+							<div class="cart-list">
+								<form action="${pageContext.request.contextPath}/login"
+									method="post" name="formdangnhap">
+									<div class="input-group mb-3">
+										<input type="text" name="username" class="form-control"
+											placeholder="Username" required>
+										<div class="input-group-append">
+											<div class="input-group-text">
+												<span class="fas fa-envelope"></span>
+											</div>
+										</div>
+									</div>
+									<div class="input-group mb-3">
+										<input type="text" name="password" class="form-control"
+											placeholder="Password" required>
+										<div class="input-group-append">
+											<div class="input-group-text">
+												<span class="fas fa-lock"></span>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-8">
+											<div class="icheck-primary">
+												<input type="checkbox" id="remember"> <label
+													for="remember"> Remember Me </label>
+											</div>
+										</div>
+										<!-- /.col -->
+										<div class="col-4">
+											<button type="submit" name="submit"
+												class="btn btn-primary btn-block">Sign In</button>
+										</div>
+										<!-- /.col -->
+									</div>
+								</form>
+								</body>
+
+							</div>
+						</div>
+					</div> <!-- /Cart -->
+
+
+
+				</li>
 				<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
 			</ul>
 		</div>
@@ -31,7 +82,9 @@
 				<!-- LOGO -->
 				<div class="col-md-3">
 					<div class="header-logo">
-						<a href="#" class="logo"> <img src="./img/logo.png" alt="">
+						<a href="${pageContext.request.contextPath}" class="logo"> <img
+							src="${pageContext.request.contextPath}/template/client/img/logo.png"
+							alt="">
 						</a>
 					</div>
 				</div>
@@ -143,7 +196,7 @@
 		<div id="responsive-nav">
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="${pageContext.request.contextPath}">Home</a></li>
 				<li><a href="#">Hot Deals</a></li>
 				<li><a href="#">Categories</a></li>
 				<li><a href="#">Laptops</a></li>
