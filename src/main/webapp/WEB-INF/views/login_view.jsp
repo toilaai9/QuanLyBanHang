@@ -7,7 +7,7 @@
 <title></title>
 </head>
 <body>
-<form action="" method="post" name="formdangnhap"  >
+<form action="${pageContext.request.contextPath}/login" method="post" name="formdangnhap"  >
         <div class="input-group mb-3">
           <input type="text" name="username" class="form-control" placeholder="Username" required>
           <div class="input-group-append">

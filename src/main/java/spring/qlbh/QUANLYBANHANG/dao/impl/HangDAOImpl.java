@@ -19,7 +19,7 @@ public class HangDAOImpl implements HangDAO {
 	public List<HangInfo> loadHang() {
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
-					+" (h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem) " // các trường trong đối tượng HangInfo
+					+" (h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // các trường trong đối tượng HangInfo
 					+" from " + Hang.class.getName() + " h "; // để ý chỗ này, chỗ này phải cách ra, chứ k nó lỗi
 		Query query = session.createQuery(sql);
 		return query.list();
@@ -29,7 +29,7 @@ public class HangDAOImpl implements HangDAO {
 	public List<HangInfo> loadHangTheoLoai(int maLoai){
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
-					+" ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem) " // các trường trong đối tượng HangInfo
+					+" ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // các trường trong đối tượng HangInfo
 					+" from " + Hang.class.getName() + " h "+"where h.maLoai=: maLoai "; // select bàng Hibernate thì nó trả về 1 đối tượng
 		Query query = session.createQuery(sql);
 		query.setParameter("maLoai", maLoai);
@@ -39,7 +39,7 @@ public class HangDAOImpl implements HangDAO {
 	public List<HangInfo> loadHangTheoId(int maHang){
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
-					+" ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem) " 
+					+" ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " 
 					+" from " + Hang.class.getName() + " h "+"where h.maHang=: maHang ";
 		Query query = session.createQuery(sql);
 		query.setParameter("maHang", maHang);

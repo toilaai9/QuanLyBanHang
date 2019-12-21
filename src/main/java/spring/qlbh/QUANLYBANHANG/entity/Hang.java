@@ -18,6 +18,8 @@ public class Hang {
 	private String ngaySX;
 	private String tGBaoHanh;
 	private String tTThem;
+	private int soLuongHang;
+	private int trangThaiHang;
 	@Id
 	@Column(name="MAHANG")
 	public int getMaHang() {
@@ -89,5 +91,20 @@ public class Hang {
 	public void settTThem(String tTThem) {
 		this.tTThem = tTThem;
 	}
+	@Column(name="SOLUONGHANG")
+	public int getSoLuongHang() {
+		return soLuongHang;
+	}
+	public void setSoLuongHang(int soLuongHang) {
+		this.soLuongHang = soLuongHang;
+	}
+	@Column(name="TRANGTHAIHANG")
+	public int getTrangThaiHang() {
+		return trangThaiHang;
+	}
+	public void setTrangThaiHang(int trangThaiHang) {
+		this.trangThaiHang = trangThaiHang;
+	}
+	
 	
 }

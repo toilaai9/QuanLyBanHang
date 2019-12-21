@@ -15,10 +15,10 @@ import spring.qlbh.QUANLYBANHANG.model.UserInfo;
 public class UserController {
 	
 	private UserDAO userInfo;
-	
+	// trong này ông để method =post 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPage(Model model, @RequestParam("username") String userName,
-			@RequestParam String passWord, HttpSession session) {
+			@RequestParam("password") String passWord, HttpSession session) {
 //		String request = "";
 //		UserInfo us= userInfo.checkLogin(userName,passWord);
 //		if(us !=null) {

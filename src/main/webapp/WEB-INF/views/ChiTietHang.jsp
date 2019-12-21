@@ -90,22 +90,40 @@
 									<fmt:formatNumber type="currency" value="${h.donGia }" />
 									<del class="product-old-price">$990.00</del>
 								</h3>
-								<span class="product-available">In Stock</span>
+								<c:if test="${h.trangThaiHang == 0 }">
+									<span class="product-available">Còn Hàng</span>
+								</c:if>
+								<c:if test="${h.trangThaiHang == 1 }">
+									<span class="product-available">Hết Hàng</span>
+								</c:if>
 							</div>
 							<p>${h.tTThem }</p>
 
 
 							<div class="add-to-cart">
 								<div class="qty-label">
-									Qty
+									Số lượng
 									<div class="input-number">
-										<input type="number"> <span class="qty-up">+</span> <span
-											class="qty-down">-</span>
+										<input type="number" value="1" readonly> <span
+											class="qty-up">+</span> <span class="qty-down">-</span>
 									</div>
 								</div>
-								<button class="add-to-cart-btn">
-									<i class="fa fa-shopping-cart"></i> add to cart
-								</button>
+								<c:if test="${h.trangThaiHang == 0 }">
+									<a href="${pageContext.request.contextPath}">
+										<button class="add-to-cart-btn">
+											<i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
+										</button>
+									</a>
+									</span>
+								</c:if>
+								<c:if test="${h.trangThaiHang == 1 }">
+									<a href="#">
+										<button class="add-to-cart-btn">
+											<i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
+										</button>
+									</a>
+									</span>
+								</c:if>
 							</div>
 						</div>
 					</div>

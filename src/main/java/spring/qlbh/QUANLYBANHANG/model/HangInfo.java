@@ -11,12 +11,10 @@ public class HangInfo {
 	private String ngaySX;
 	private String tGBaoHanh;
 	private String tTThem;
-	public HangInfo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	private int soLuongHang;
+	private int trangThaiHang;
 	public HangInfo(int maHang, String tenHang, int donGia, String imageLink, float vAT, int maLoai, String nhaSX,
-			String ngaySX, String tGBaoHanh, String tTThem) {
+			String ngaySX, String tGBaoHanh, String tTThem, int soLuongHang, int trangThaiHang) {
 		super();
 		this.maHang = maHang;
 		this.tenHang = tenHang;
@@ -28,6 +26,12 @@ public class HangInfo {
 		this.ngaySX = ngaySX;
 		this.tGBaoHanh = tGBaoHanh;
 		this.tTThem = tTThem;
+		this.soLuongHang = soLuongHang;
+		this.trangThaiHang = trangThaiHang;
+	}
+	public HangInfo() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 	public int getMaHang() {
 		return maHang;
@@ -88,6 +92,18 @@ public class HangInfo {
 	}
 	public void settTThem(String tTThem) {
 		this.tTThem = tTThem;
+	}
+	public int getSoLuongHang() {
+		return soLuongHang;
+	}
+	public void setSoLuongHang(int soLuongHang) {
+		this.soLuongHang = soLuongHang;
+	}
+	public int getTrangThaiHang() {
+		return trangThaiHang;
+	}
+	public void setTrangThaiHang(int trangThaiHang) {
+		this.trangThaiHang = trangThaiHang;
 	}
 	
 }
