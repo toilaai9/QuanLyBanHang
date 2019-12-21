@@ -28,6 +28,7 @@
 </head>
 <body>
 	<%@include file="/common/client/header.jsp" %>
+	
 	<dec:body></dec:body>
 	<%@include file="/common/client/footer.jsp" %>
 </body>

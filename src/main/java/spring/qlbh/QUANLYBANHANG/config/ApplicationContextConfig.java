@@ -23,7 +23,8 @@ import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
 import spring.qlbh.QUANLYBANHANG.dao.impl.HangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.LoaiHangDAOImpl;
-import spring.qlbh.QUANLYBANHANG.dao.impl.UserDAOImpl;
+
+import spring.qlbh.QUANLYBANHANG.dao.impl.UserDaoImpl;
 
 @Configuration
 @ComponentScan("spring.qlbh.QUANLYBANHANG.*")
@@ -94,7 +95,7 @@ public class ApplicationContextConfig {
 
 	@Bean(name = "login")
 	public UserDAO check() {
-		return new UserDAOImpl();
+		return new UserDaoImpl();
 	}
 	@Bean(name="hang_DAO")
 	public HangDAO loadHang() {

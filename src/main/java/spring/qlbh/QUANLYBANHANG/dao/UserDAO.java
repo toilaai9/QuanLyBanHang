@@ -1,8 +1,15 @@
 package spring.qlbh.QUANLYBANHANG.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
+
+import spring.qlbh.QUANLYBANHANG.entity.User;
+import spring.qlbh.QUANLYBANHANG.model.UserInfo;
 
 @Transactional
 public interface UserDAO {
-	public boolean checkLogin(String user,String pass);
+	public List<UserInfo> loadUser();
+	public User findUser(int id);
+	public void xoaUser(int id);
 }
