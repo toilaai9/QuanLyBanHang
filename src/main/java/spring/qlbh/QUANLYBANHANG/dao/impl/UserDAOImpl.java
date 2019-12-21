@@ -7,8 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
-import spring.qlbh.QUANLYBANHANG.entity.LoginEntity;
-import spring.qlbh.QUANLYBANHANG.model.LoginInfo;
+import spring.qlbh.QUANLYBANHANG.entity.User;
+import spring.qlbh.QUANLYBANHANG.model.UserInfo;
+
 
 public class UserDAOImpl implements UserDAO {
 
@@ -16,16 +17,16 @@ public class UserDAOImpl implements UserDAO {
 	private SessionFactory sessionfactory;
 	
 	@Override
-	public boolean checkLogin(String user, String pass) {
-		Session session = sessionfactory.getCurrentSession();
+	public UserInfo checkLogin(String userName, String passWord) {
+		Session se = this.sessionfactory.getCurrentSession();
 
-		String sql = " SELECT new " + LoginInfo.class.getName() + " (u.id, u.username, u.password)" + " FROM "
-				+ LoginEntity.class.getName() + " u ";
+		String sql = " Select new " + UserInfo.class.getName()
+				+ "(u.id, u.userName, u.passWord, u.hoTen, u.imagelink, u.diaChi, u.sDT, u.loai)" + " from "
+				+ User.class.getName() + " u where USERNAME =: us and PASSWORD =: pw";
 
-		Query query = session.createQuery(sql);
-		if(query.list().size()>=1) return true;
-		
-		return false;
+		Query query = se.createQuery(sql);
+		query.setParameter("us", userName);
+		query.setParameter("pw",passWord);
+		return (UserInfo) query.uniqueResult();
 	}
-
 }

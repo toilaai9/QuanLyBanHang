@@ -78,4 +78,12 @@ public class HomeController {
 	public String thanhToan(Model model) {
 		return "ThanhToan";
 	}
+//	@RequestMapping("/login")
+//	public String login(Model model) {
+//		return "login_view";
+//	}
+//	@RequestMapping("/register")
+//	public String register() {
+//		return "register";
+//	}
 }
