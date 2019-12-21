@@ -1,10 +1,13 @@
 package spring.qlbh.QUANLYBANHANG.dao.impl;
 
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
-
 
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
 import spring.qlbh.QUANLYBANHANG.entity.User;
@@ -14,11 +17,35 @@ import spring.qlbh.QUANLYBANHANG.model.UserInfo;
 public class UserDAOImpl implements UserDAO {
 
 	@Autowired
-	private SessionFactory sessionfactory;
-	
+	private SessionFactory sessionFactory;
+
 	@Override
+	public List<UserInfo> loadUser() {
+		Session session = this.sessionFactory.getCurrentSession();
+		String sql = " select new " + UserInfo.class.getName() 
+				+ " (u.id, u.userName, u.passWord, u.hoTen, u.imageLink, u.diaChi, u.sDT, u.loai) " + " from "
+				+ User.class.getName() + " u ";
+		Query query = session.createQuery(sql);
+		return query.list();
+	}
+
+	@Override
+	public User findUser(int id) {
+		Session session = sessionFactory.getCurrentSession();
+		Criteria crit = session.createCriteria(User.class);
+		crit.add(Restrictions.eq("id", id));
+		return (User) crit.uniqueResult();
+	}
+
+	@Override
+	public void xoaUser(int id) {
+		User user = this.findUser(id);
+		if (user != null) {
+			this.sessionFactory.getCurrentSession().delete(user);
+		}
+	}
 	public UserInfo checkLogin(String userName, String passWord) {
-		Session se = this.sessionfactory.getCurrentSession();
+		Session se = this.sessionFactory.getCurrentSession();
 
 		String sql = " Select new " + UserInfo.class.getName()
 				+ "(u.id, u.userName, u.passWord, u.hoTen, u.imagelink, u.diaChi, u.sDT, u.loai)" + " from "

@@ -25,6 +25,7 @@ import spring.qlbh.QUANLYBANHANG.dao.impl.HangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.LoaiHangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.UserDAOImpl;
 
+
 @Configuration
 @ComponentScan("spring.qlbh.QUANLYBANHANG.*")
 @EnableTransactionManagement
