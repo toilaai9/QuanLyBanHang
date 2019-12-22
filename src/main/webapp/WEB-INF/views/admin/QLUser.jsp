@@ -10,6 +10,12 @@
 				<div class="col-sm-6">
 					<h1>Quản Lý Nhân Viên</h1>
 				</div>
+				<div class="col-sm-6" style="text-align: right; font-size: 20px;">
+						<!-- <a href="#" style="font-size: 20px;margin-top: 20px"class="glyphicon glyphicon-plus">Thêm</a>  -->
+						<a href="#" class="btn btn-info "> <span class="fa fa-plus"></span>
+							Thêm
+						</a>
+					</div>
 				<div class="col-sm-6"></div>
 			</div>
 		</div>
@@ -64,11 +70,14 @@
 													<i class="fa fa-edit" aria-hidden="true"></i>
 												</button>
 										</a>
+										<a href="${pageContext.request.contextPath}/admin/user/delete?id=${u.id}" onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không? ')">
 											<button data-toggle="tooltip"
 													style="border: 2px solid lightgrey; border-radius: 5px;"
 													data-original-title="Xóa">
 												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button></td>
+											</button>
+											</a>
+											</td>
 										</tr>
 								
 								</tbody>

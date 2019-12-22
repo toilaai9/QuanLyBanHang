@@ -34,7 +34,7 @@ public class HomeControllerAdmin {
 		int id= Integer.parseInt(request.getParameter("id"));
 		userDao.xoaUser(id);
 		session.setAttribute("mess", "Xoa thanh cong!");
-		return "admin/QLUser";
+		return "redirect:/admin/user";
 	}
 	@RequestMapping("/admin/hang")
 	public String Hang(Model model) {
@@ -45,16 +45,15 @@ public class HomeControllerAdmin {
 	@RequestMapping("/admin/hang/delete")
 	public String deleteHang(Model model, HttpServletRequest request,HttpSession session ) {
 		int id= Integer.parseInt(request.getParameter("id"));
-//		hangDAO.xoaHang(id);
+//		hangDAO.xoaHang̣̣̣̣̣(id);
 		session.setAttribute("mess", "Xoa thanh cong!");
-		return "admin/QLUser";
+		return "admin";
 	}
-//	@Override
-//		public void xoaUser(int id) {
-//			User user = this.findUser(id);
-//			if (user != null) {
-//				this.sessionFactory.getCurrentSession().delete(user);
-//			}
-//		}
-		
+
+	@RequestMapping("/admin/user/add")
+	public String addUser(Model model) {
+		List<UserInfo> listUser = userDao.loadUser();
+		model.addAttribute("listUser",listUser );
+		return "admin/addUser";
+	}	
 }

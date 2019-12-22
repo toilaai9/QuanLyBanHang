@@ -11,4 +11,5 @@ public interface HangDAO {
 	public List<HangInfo> loadHang();
 	public List<HangInfo> loadHangTheoLoai(int maLoai);
 	public HangInfo loadHangTheoId(int maHang);
+
 }
