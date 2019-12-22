@@ -115,6 +115,27 @@ public class HomeController {
 		}
 		return "redirect:/cart";
 	}
+	@RequestMapping(value = "/minus/{id}", method = RequestMethod.GET)
+	public String minus(@PathVariable("id") int id, HttpSession session) {
+//		HangDAO hang;
+//		if (session.getAttribute("cart") == null) {
+//			List<GioHangInfo> cart = new ArrayList<GioHangInfo>();
+//			cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
+//			session.setAttribute("cart", cart);
+//		} else {
+			List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");
+			int index = this.exists(id, cart);
+//			if (index == -1) {
+//				cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
+//			} else {
+			if(cart.get(index).getSoLuong()>1) {
+				int quantity = cart.get(index).getSoLuong() - 1;
+				cart.get(index).setSoLuong(quantity);
+			}
+			session.setAttribute("cart", cart);
+//		}
+		return "redirect:/cart";
+	}
 	@RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
 	public String remove(@PathVariable("id") int id, HttpSession session) {
 		List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");

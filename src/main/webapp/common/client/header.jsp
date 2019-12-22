@@ -64,9 +64,6 @@
 							</div>
 						</div>
 					</div> <!-- /Cart -->
-
-
-
 				</li>
 				<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
 			</ul>
@@ -95,11 +92,7 @@
 				<div class="col-md-6">
 					<div class="header-search">
 						<form>
-							<select class="input-select">
-								<option value="0">All Categories</option>
-								<option value="1">Category 01</option>
-								<option value="1">Category 02</option>
-							</select> <input class="input" placeholder="Search here">
+							 <input class="input" placeholder="Search here">
 							<button class="search-btn">Search</button>
 						</form>
 					</div>
@@ -116,9 +109,7 @@
 								<div class="qty">2</div>
 							</a>
 						</div>
-						<c:if test="${sessionScope.cart == null}">
-						<h3>ko có sp</h3>
-						</c:if>
+						<c:set var="sl" value="0"></c:set>
 						<!-- /Wishlist -->
 						<c:forEach var="item" items="${sessionScope.cart }">
 							<c:set var="sl" value="${sl + 1 }"></c:set>
@@ -132,12 +123,20 @@
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
+									<c:if test="${sessionScope.cart == null}">
+										<h4>ko có sp</h4>
+									</c:if>
+									<c:if test="${sl == 0}">
+										<h4>ko có sp</h4>
+									</c:if>
 									<c:forEach var="item" items="${sessionScope.cart }">
 										<c:set var="total"
 											value="${total + item.hang.donGia * item.soLuong }"></c:set>
 										<div class="product-widget">
 											<div class="product-img">
-												<img src="${pageContext.request.contextPath}/template/client/img/${item.hang.imageLink }" alt="">
+												<img
+													src="${pageContext.request.contextPath}/template/client/img/${item.hang.imageLink }"
+													alt="">
 											</div>
 											<div class="product-body">
 												<h3 class="product-name">
@@ -149,8 +148,9 @@
 														value="${item.hang.donGia }" />
 												</h4>
 											</div>
-											<a href="${pageContext.request.contextPath}/remove/${item.hang.maHang }"
-												onclick="return confirm('Are you sure?')"><button
+											<a
+												href="${pageContext.request.contextPath}/remove/${item.hang.maHang }"
+												onclick="return confirm('Bạn có muốn xóa khỏi giỏ hàng?')"><button
 													class="delete">
 													<i class="fa fa-close"></i>
 												</button></a>
@@ -168,8 +168,10 @@
 									</h5>
 								</div>
 								<div class="cart-btns">
-									<a href="${pageContext.request.contextPath}/cart">Xem giỏ hàng</a> <a href="${pageContext.request.contextPath}/checkout">Thanh toán <i
-										class="fa fa-arrow-circle-right"></i></a>
+									<a href="${pageContext.request.contextPath}/cart">Xem giỏ
+										hàng</a> <a href="${pageContext.request.contextPath}/checkout">Thanh
+										toán <i class="fa fa-arrow-circle-right"></i>
+									</a>
 								</div>
 							</div>
 						</div>
@@ -225,11 +227,10 @@
 			<div class="col-md-4 col-xs-6">
 				<div class="shop">
 					<div class="shop-img">
-						<img src="./img/shop01.png" alt="">
+						<img src="${pageContext.request.contextPath}/template/client/img/shop01.png" alt="">
 					</div>
 					<div class="shop-body">
-						<h3>
-							Laptop<br>Collection
+						<h3> Laptop<br>Collection
 						</h3>
 						<a href="#" class="cta-btn">Shop now <i
 							class="fa fa-arrow-circle-right"></i></a>
@@ -242,7 +243,7 @@
 			<div class="col-md-4 col-xs-6">
 				<div class="shop">
 					<div class="shop-img">
-						<img src="./img/shop03.png" alt="">
+						<img src="${pageContext.request.contextPath}/template/client/img/shop03.png" alt="">
 					</div>
 					<div class="shop-body">
 						<h3>
@@ -259,7 +260,7 @@
 			<div class="col-md-4 col-xs-6">
 				<div class="shop">
 					<div class="shop-img">
-						<img src="./img/shop02.png" alt="">
+						<img src="${pageContext.request.contextPath}/template/client/img/shop02.png" alt="">
 					</div>
 					<div class="shop-body">
 						<h3>

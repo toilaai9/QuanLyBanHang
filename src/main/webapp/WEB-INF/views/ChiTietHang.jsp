@@ -88,7 +88,6 @@
 							<div>
 								<h3 class="product-price">
 									<fmt:formatNumber type="currency" value="${hang_chitiet.donGia }" />
-									<del class="product-old-price">$990.00</del>
 								</h3>
 								<c:if test="${hang_chitiet.trangThaiHang == 0 }">
 									<span class="product-available">Còn Hàng</span>

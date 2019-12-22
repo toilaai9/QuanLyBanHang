@@ -43,19 +43,6 @@
 							<div class="form-group">
 								<input class="input" type="tel" name="tel" placeholder="Telephone">
 							</div>
-							<div class="form-group">
-								<div class="input-checkbox">
-									<input type="checkbox" id="create-account">
-									<label for="create-account">
-										<span></span>
-										Create Account?
-									</label>
-									<div class="caption">
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-										<input class="input" type="password" name="password" placeholder="Enter Your Password">
-									</div>
-								</div>
-							</div>
 						</div>
 						<!-- /Billing Details -->
 
@@ -114,18 +101,18 @@
 						</div>
 						<div class="order-summary">
 							<div class="order-col">
-								<div><strong>PRODUCT</strong></div>
-								<div><strong>TOTAL</strong></div>
+								<div><strong>Sản Phẩm</strong></div>
+								<div><strong>Đơn Giá</strong></div>
 							</div>
 							<div class="order-products">
+							<c:forEach var="item" items="${sessionScope.cart }">
+										<c:set var="total"
+											value="${total + item.hang.donGia * item.soLuong }"></c:set>
 								<div class="order-col">
-									<div>1x Product Name Goes Here</div>
-									<div>$980.00</div>
+									<div>${item.soLuong }x ${item.hang.tenHang }</div>
+									<div><fmt:formatNumber type="currency" value="${item.hang.donGia }" /></div>
 								</div>
-								<div class="order-col">
-									<div>2x Product Name Goes Here</div>
-									<div>$980.00</div>
-								</div>
+								</c:forEach>
 							</div>
 							<div class="order-col">
 								<div>Shiping</div>
@@ -133,7 +120,7 @@
 							</div>
 							<div class="order-col">
 								<div><strong>TOTAL</strong></div>
-								<div><strong class="order-total">$2940.00</strong></div>
+								<div><strong class="order-total"><fmt:formatNumber type="currency" value="${total }" /></strong></div>
 							</div>
 						</div>
 						<div class="payment-method">

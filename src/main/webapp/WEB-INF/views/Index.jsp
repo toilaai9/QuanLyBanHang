@@ -183,8 +183,7 @@
 															</button>
 
 															<button class="quick-view">
-																<a
-																	href="${pageContext.request.contextPath}/chitiet?id=${dt.maHang}"><i
+																<a href="${pageContext.request.contextPath}/chitiet?id=${dt.maHang}"><i
 																	class="fa fa-eye"></i><span class="tooltipp">Xem
 																		Chi Tiết</span></a>
 															</button>
@@ -237,10 +236,8 @@
 															</button>
 
 															<button class="quick-view">
-																<a
-																	href="${pageContext.request.contextPath}/chitiet?id=${mt.maHang}"><i
-																	class="fa fa-eye"></i><span class="tooltipp">Xem
-																		Chi Tiết</span></a>
+																<a href="${pageContext.request.contextPath}/chitiet?id=${mt.maHang}"><i
+																	class="fa fa-eye"></i><span class="tooltipp">Xem Chi Tiết</span></a>
 															</button>
 
 														</div>
