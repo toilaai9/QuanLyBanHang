@@ -12,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
@@ -96,8 +95,9 @@ public class HomeController {
 //	public String register() {
 //		return "register";
 //	}
-	@RequestMapping(value = "buy/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/buy/{id}", method = RequestMethod.GET)
 	public String buy(@PathVariable("id") int id, HttpSession session) {
+//		HangDAO hang;
 		if (session.getAttribute("cart") == null) {
 			List<GioHangInfo> cart = new ArrayList<GioHangInfo>();
 			cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
@@ -115,14 +115,13 @@ public class HomeController {
 		}
 		return "redirect:/cart";
 	}
-	@RequestMapping(value = "remove/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
 	public String remove(@PathVariable("id") int id, HttpSession session) {
-		HangDAO hang;
 		List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");
 		int index = this.exists(id, cart);
 		cart.remove(index);
 		session.setAttribute("cart", cart);
-		return "redirect:/cart/index";
+		return "redirect:/cart";
 	}
 	private int exists(int id, List<GioHangInfo> cart) {
 		for (int i = 0; i < cart.size(); i++) {

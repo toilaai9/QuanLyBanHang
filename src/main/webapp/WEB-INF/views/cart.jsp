@@ -76,21 +76,12 @@
 									</h5>
 								</td>
 								<td>
-									<div class="product_count">
-										<input type="text" name="qty"
-											id="qt_" value="1
-										" title="Quantity:" class="input-text qty" readonly>
-										<button class="increase items-count" id="plus"
-											data-id=""
-											type="button">
-											<i class="fa fa-caret-up"></i>
-										</button>
-										<button class="reduced items-count" id="minus"
-											data-id=""
-											type="button">
-											<i class="fa fa-caret-down"></i>
-										</button>
+									<div class="qty-label">
+									<div class="input-number">
+										<input type="number" value="1" readonly> <span
+											class="qty-up">+</span> <span class="qty-down">-</span>
 									</div>
+								</div>
 								</td>
 								<td>
 									<h5 id="tt_
@@ -140,5 +131,6 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
 	<script src="${pageContext.request.contextPath}/template/client/js/gmaps.min.js"></script>
 	<script src="${pageContext.request.contextPath}/template/client/js/main.js"></script>
+	
 </body>
 </html>

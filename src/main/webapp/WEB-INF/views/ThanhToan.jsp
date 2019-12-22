@@ -183,11 +183,6 @@
 			</div>
 			<!-- /container -->
 		</div>
-				<script src="${pageContext.request.contextPath}/template/client/js/jquery.min.js"></script>
-		<script src="${pageContext.request.contextPath}/template/client/js/bootstrap.min.js"></script>
-		<script src="${pageContext.request.contextPath}/template/client/js/slick.min.js"></script>
-		<script src="${pageContext.request.contextPath}/template/client/js/nouislider.min.js"></script>
-		<script src="${pageContext.request.contextPath}/template/client/js/jquery.zoom.min.js"></script>
-		<script src="${pageContext.request.contextPath}/template/client/js/main.js"></script>
+
 </body>
 </html>
