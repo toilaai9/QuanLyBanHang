@@ -43,24 +43,24 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String indexPage(Model model) {
-//		List<HangInfo> hang = hangDAO.loadHang();
-//		
-//		List<LoaiHangInfo> loaiHang =loaiHangDAO.loadMenu();
-//		List<HangInfo> hangTivi = hangDAO.loadHangTheoLoai(1);
-//		List<HangInfo> hangTaiNghe = hangDAO.loadHangTheoLoai(2);
-//		List<HangInfo> hangDienThoai = hangDAO.loadHangTheoLoai(3);
-//		List<HangInfo> hangMayTinh = hangDAO.loadHangTheoLoai(4);
-//		List<HangInfo> hangTuLanh = hangDAO.loadHangTheoLoai(7);
-//		List<HangInfo> hangMayQuat = hangDAO.loadHangTheoLoai(9);
-//			
-//		model.addAttribute("tivi", hangTivi);
-//		model.addAttribute("tainghe", hangTaiNghe);
-//		model.addAttribute("dienthoai", hangDienThoai);
-//		model.addAttribute("maytinh", hangMayTinh);
-//		model.addAttribute("tulanh", hangTuLanh);
-//		model.addAttribute("mayquat", hangMayQuat);
-//		model.addAttribute("hang", hang);
-//		model.addAttribute("loaiHang", loaiHang);
+		List<HangInfo> hang = hangDAO.loadHang();
+		
+		List<LoaiHangInfo> loaiHang =loaiHangDAO.loadMenu();
+		List<HangInfo> hangTivi = hangDAO.loadHangTheoLoai(1);
+		List<HangInfo> hangTaiNghe = hangDAO.loadHangTheoLoai(2);
+		List<HangInfo> hangDienThoai = hangDAO.loadHangTheoLoai(3);
+		List<HangInfo> hangMayTinh = hangDAO.loadHangTheoLoai(4);
+		List<HangInfo> hangTuLanh = hangDAO.loadHangTheoLoai(7);
+		List<HangInfo> hangMayQuat = hangDAO.loadHangTheoLoai(9);
+			
+		model.addAttribute("tivi", hangTivi);
+		model.addAttribute("tainghe", hangTaiNghe);
+		model.addAttribute("dienthoai", hangDienThoai);
+		model.addAttribute("maytinh", hangMayTinh);
+		model.addAttribute("tulanh", hangTuLanh);
+		model.addAttribute("mayquat", hangMayQuat);
+		model.addAttribute("hang", hang);
+		model.addAttribute("loaiHang", loaiHang);
 		return "Index";
 	}
 	@RequestMapping("/cart")

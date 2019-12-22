@@ -1,3 +1,4 @@
+
 package spring.qlbh.QUANLYBANHANG.controller.Admin;
 
 import java.util.List;
@@ -16,7 +17,7 @@ import spring.qlbh.QUANLYBANHANG.model.HangInfo;
 import spring.qlbh.QUANLYBANHANG.model.UserInfo;
 
 @Controller
-public class HomController {
+public class HomeControllerAdmin {
 	@Autowired
 	private UserDAO userDao;
 	@Autowired
@@ -47,5 +48,13 @@ public class HomController {
 //		hangDAO.xoaHang(id);
 		session.setAttribute("mess", "Xoa thanh cong!");
 		return "admin/QLUser";
-	}	
+	}
+//	@Override
+//		public void xoaUser(int id) {
+//			User user = this.findUser(id);
+//			if (user != null) {
+//				this.sessionFactory.getCurrentSession().delete(user);
+//			}
+//		}
+		
 }

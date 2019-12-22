@@ -46,31 +46,31 @@
 										<th>Địa Chỉ</th>
 										<th>SĐT</th>
 										<th>Loại</th>
-										<td><a
-											href="#">
-												<button data-toggle="tooltip"
-													style="border: 2px solid lightgrey; border-radius: 5px;"
-													data-original-title="Sửa">
-													<i class="fa fa-edit" aria-hidden="true"></i>
-												</button>
-										</a>
-											<button data-toggle="tooltip"
-												
-												style="border: 2px solid lightgrey; border-radius: 5px;"
-												data-original-title="Xóa">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button></td>
+
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach items="${listUser }" var="u">
 										<tr>
-											<th>${u.hoTen }</th>
-											<th><img src="" /></th>
-											<th>${u.diaChi }</th>
-											<th>${u.sDT }</th>
-											<th>${u.loai }</th>
+											<td>${u.hoTen }</td>
+											<td><img src="" /></td>
+											<td>${u.diaChi }</td>
+											<td>${u.sDT }</td>
+											<td>${u.loai }</td>
+												<td><a href="#">
+												<button data-toggle="tooltip"
+														style="border: 2px solid lightgrey; border-radius: 5px;"
+														data-original-title="Sửa">
+													<i class="fa fa-edit" aria-hidden="true"></i>
+												</button>
+										</a>
+											<button data-toggle="tooltip"
+													style="border: 2px solid lightgrey; border-radius: 5px;"
+													data-original-title="Xóa">
+												<i class="fa fa-trash" aria-hidden="true"></i>
+											</button></td>
 										</tr>
+								
 								</tbody>
 								</c:forEach>
 							</table>
