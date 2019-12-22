@@ -54,7 +54,6 @@
 														</div>
 													</div>
 													<div class="product-body">
-														<p class="product-category">Category</p>
 														<h3 class="product-name">
 															<a
 																href="${pageContext.request.contextPath}/chitiet?id=${tv.maHang}">${tv.tenHang }</a>
@@ -83,9 +82,11 @@
 														</div>
 													</div>
 													<div class="add-to-cart">
+													<a href="${pageContext.request.contextPath}/buy/${tv.maHang }">
 														<button class="add-to-cart-btn">
 															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
 														</button>
+														</a>
 													</div>
 												</div>
 											</c:forEach>
@@ -109,7 +110,6 @@
 														</div>
 													</div>
 													<div class="product-body">
-														<p class="product-category">Category</p>
 														<h3 class="product-name">
 															<a
 																href="${pageContext.request.contextPath}/chitiet?id=${tn.maHang}">${tn.tenHang }</a>
@@ -138,9 +138,11 @@
 														</div>
 													</div>
 													<div class="add-to-cart">
+													<a href="${pageContext.request.contextPath}/buy/${tn.maHang }">
 														<button class="add-to-cart-btn">
 															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
 														</button>
+														</a>
 													</div>
 												</div>
 											</c:forEach>
@@ -162,7 +164,6 @@
 														</div>
 													</div>
 													<div class="product-body">
-														<p class="product-category">Category</p>
 														<h3 class="product-name">
 															<a
 																href="${pageContext.request.contextPath}/chitiet?id=${dt.maHang}">${dt.tenHang }</a>
@@ -191,9 +192,11 @@
 														</div>
 													</div>
 													<div class="add-to-cart">
+													<a href="${pageContext.request.contextPath}/buy/${dt.maHang }">
 														<button class="add-to-cart-btn">
 															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
 														</button>
+														</a>
 													</div>
 												</div>
 											</c:forEach>
@@ -215,7 +218,6 @@
 														</div>
 													</div>
 													<div class="product-body">
-														<p class="product-category">Category</p>
 														<h3 class="product-name">
 															<a
 																href="${pageContext.request.contextPath}/chitiet?id=${mt.maHang}">${mt.tenHang }</a>
@@ -244,9 +246,11 @@
 														</div>
 													</div>
 													<div class="add-to-cart">
+													<a href="${pageContext.request.contextPath}/buy/${mt.maHang }">
 														<button class="add-to-cart-btn">
 															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
 														</button>
+														</a>
 													</div>
 												</div>
 											</c:forEach>
@@ -268,7 +272,6 @@
 														</div>
 													</div>
 													<div class="product-body">
-														<p class="product-category">Category</p>
 														<h3 class="product-name">
 															<a
 																href="${pageContext.request.contextPath}/chitiet?id=${tl.maHang}">${tl.tenHang }</a>
@@ -297,9 +300,11 @@
 														</div>
 													</div>
 													<div class="add-to-cart">
+													<a href="${pageContext.request.contextPath}/buy/${tl.maHang }">
 														<button class="add-to-cart-btn">
 															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
 														</button>
+														</a>
 													</div>
 												</div>
 											</c:forEach>
@@ -321,7 +326,6 @@
 														</div>
 													</div>
 													<div class="product-body">
-														<p class="product-category">Category</p>
 														<h3 class="product-name">
 															<a
 																href="${pageContext.request.contextPath}/chitiet?id=${mq.maHang}">${mq.tenHang }</a>
@@ -350,9 +354,11 @@
 														</div>
 													</div>
 													<div class="add-to-cart">
+													<a href="${pageContext.request.contextPath}/buy/${mq.maHang }">
 														<button class="add-to-cart-btn">
 															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
 														</button>
+														</a>
 													</div>
 												</div>
 											</c:forEach>
@@ -373,7 +379,6 @@
 														</div>
 													</div>
 													<div class="product-body">
-														<p class="product-category">Category</p>
 														<h3 class="product-name">
 															<a
 																href="${pageContext.request.contextPath}/chitiet?id=${h.maHang}">${h.tenHang }</a>
@@ -403,9 +408,11 @@
 													</div>
 
 													<div class="add-to-cart">
+													<a href="${pageContext.request.contextPath}/buy/${h.maHang }">
 														<button class="add-to-cart-btn">
 															<i class="fa fa-shopping-cart"></i> Thêm Vào Giỏ Hàng
 														</button>
+														</a>
 													</div>
 												</div>
 											</c:forEach>
@@ -781,16 +788,5 @@
 	<!-- /container -->
 </div>
 <!-- /NEWSLETTER -->
-<script
-	src="${pageContext.request.contextPath}/template/client/js/jquery.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/template/client/js/bootstrap.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/template/client/js/slick.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/template/client/js/nouislider.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/template/client/js/jquery.zoom.min.js"></script>
-<script
-	src="${pageContext.request.contextPath}/template/client/js/main.js"></script>
+
 </body>

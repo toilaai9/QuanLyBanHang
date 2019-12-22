@@ -10,5 +10,5 @@ import spring.qlbh.QUANLYBANHANG.model.HangInfo;
 public interface HangDAO {
 	public List<HangInfo> loadHang();
 	public List<HangInfo> loadHangTheoLoai(int maLoai);
-	public List<HangInfo> loadHangTheoId(int maHang);
+	public HangInfo loadHangTheoId(int maHang);
 }

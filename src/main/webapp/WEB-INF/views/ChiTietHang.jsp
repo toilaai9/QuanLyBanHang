@@ -12,30 +12,30 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
-				<c:forEach items="${hang_chitiet}" var="h">
+			<c:if test="${hang_chitiet != null}" >
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
 								<img
-									src="${pageContext.request.contextPath}/template/client//img/${h.imageLink }"
+									src="${pageContext.request.contextPath}/template/client/img/${hang_chitiet.imageLink }"
 									alt="">
 							</div>
 
 							<div class="product-preview">
 								<img
-									src="${pageContext.request.contextPath}/template/client//img/${h.imageLink }"
+									src="${pageContext.request.contextPath}/template/client/img/${hang_chitiet.imageLink }"
 									alt="">
 							</div>
 
 							<div class="product-preview">
 								<img
-									src="${pageContext.request.contextPath}/template/client//img/${h.imageLink }"
+									src="${pageContext.request.contextPath}/template/client/img/${hang_chitiet.imageLink }"
 									alt="">
 							</div>
 
 							<div class="product-preview">
 								<img
-									src="${pageContext.request.contextPath}/template/client//img/${h.imageLink }"
+									src="${pageContext.request.contextPath}/template/client/img/${hang_chitiet.imageLink }"
 									alt="">
 							</div>
 						</div>
@@ -47,25 +47,25 @@
 						<div id="product-imgs">
 							<div class="product-preview">
 								<img
-									src="${pageContext.request.contextPath}/template/client//img/${h.imageLink }"
+									src="${pageContext.request.contextPath}/template/client/img/${hang_chitiet.imageLink }"
 									alt="">
 							</div>
 
 							<div class="product-preview">
 								<img
-									src="${pageContext.request.contextPath}/template/client//img/${h.imageLink }"
+									src="${pageContext.request.contextPath}/template/client/img/${hang_chitiet.imageLink }"
 									alt="">
 							</div>
 
 							<div class="product-preview">
 								<img
-									src="${pageContext.request.contextPath}/template/client//img/${h.imageLink }"
+									src="${pageContext.request.contextPath}/template/client/img/${hang_chitiet.imageLink }"
 									alt="">
 							</div>
 
 							<div class="product-preview">
 								<img
-									src="${pageContext.request.contextPath}/template/client//img/${h.imageLink }"
+									src="${pageContext.request.contextPath}/template/client/img/${hang_chitiet.imageLink }"
 									alt="">
 							</div>
 						</div>
@@ -75,7 +75,7 @@
 					<!-- Product details -->
 					<div class="col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">${h.tenHang }</h2>
+							<h2 class="product-name">${hang_chitiet.tenHang }</h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
@@ -87,36 +87,30 @@
 							</div>
 							<div>
 								<h3 class="product-price">
-									<fmt:formatNumber type="currency" value="${h.donGia }" />
+									<fmt:formatNumber type="currency" value="${hang_chitiet.donGia }" />
 									<del class="product-old-price">$990.00</del>
 								</h3>
-								<c:if test="${h.trangThaiHang == 0 }">
+								<c:if test="${hang_chitiet.trangThaiHang == 0 }">
 									<span class="product-available">Còn Hàng</span>
 								</c:if>
-								<c:if test="${h.trangThaiHang == 1 }">
+								<c:if test="${hang_chitiet.trangThaiHang == 1 }">
 									<span class="product-available">Hết Hàng</span>
 								</c:if>
 							</div>
-							<p>${h.tTThem }</p>
+							<p>${hang_chitiet.tTThem }</p>
 
 
 							<div class="add-to-cart">
-								<div class="qty-label">
-									Số lượng
-									<div class="input-number">
-										<input type="number" value="1" readonly> <span
-											class="qty-up">+</span> <span class="qty-down">-</span>
-									</div>
-								</div>
-								<c:if test="${h.trangThaiHang == 0 }">
-									<a href="${pageContext.request.contextPath}">
+								
+								<c:if test="${hang_chitiet.trangThaiHang == 0 }">
+									<a href="${pageContext.request.contextPath}/buy/${hang_chitiet.maHang }">
 										<button class="add-to-cart-btn">
 											<i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
 										</button>
 									</a>
 									</span>
 								</c:if>
-								<c:if test="${h.trangThaiHang == 1 }">
+								<c:if test="${hang_chitiet.trangThaiHang == 1 }">
 									<a href="#">
 										<button class="add-to-cart-btn">
 											<i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
@@ -128,7 +122,7 @@
 						</div>
 					</div>
 					<!-- /Product details -->
-				</c:forEach>
+				</c:if>
 				<!-- Product main img -->
 
 
@@ -140,17 +134,6 @@
 		</div>
 		<!-- /container -->
 	</div>
-	<script
-		src="${pageContext.request.contextPath}/template/client/js/jquery.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/template/client/js/bootstrap.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/template/client/js/slick.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/template/client/js/nouislider.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/template/client/js/jquery.zoom.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/template/client/js/main.js"></script>
+
 </body>
 </html>

@@ -36,13 +36,13 @@ public class HangDAOImpl implements HangDAO {
 		return query.list();
 	}
 	@Override
-	public List<HangInfo> loadHangTheoId(int maHang){
+	public HangInfo loadHangTheoId(int maHang){
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
 					+" ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " 
 					+" from " + Hang.class.getName() + " h "+" where h.maHang=: maHang ";
 		Query query = session.createQuery(sql);
 		query.setParameter("maHang", maHang);
-		return query.list();
+		return (HangInfo) query.uniqueResult();
 	}
 }

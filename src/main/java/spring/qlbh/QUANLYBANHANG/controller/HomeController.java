@@ -1,17 +1,21 @@
 package spring.qlbh.QUANLYBANHANG.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
+import spring.qlbh.QUANLYBANHANG.model.GioHangInfo;
 import spring.qlbh.QUANLYBANHANG.model.HangInfo;
 import spring.qlbh.QUANLYBANHANG.model.LoaiHangInfo;
 
@@ -36,6 +40,7 @@ public class HomeController {
 //		}
 //		return "Index";
 //	}
+	
 	@RequestMapping("/")
 	public String indexPage(Model model) {
 //		List<HangInfo> hang = hangDAO.loadHang();
@@ -58,11 +63,14 @@ public class HomeController {
 //		model.addAttribute("loaiHang", loaiHang);
 		return "Index";
 	}
-
+	@RequestMapping("/cart")
+	public String indexCart() {
+		return "cart";
+	}
 	@RequestMapping("/chitiet")
 	public String chiTietHang(Model model, HttpServletRequest request) {
 		int maHang=Integer.parseInt(request.getParameter("id"));
-		List<HangInfo> hang = hangDAO.loadHangTheoId(maHang);
+		HangInfo hang = hangDAO.loadHangTheoId(maHang);
 		model.addAttribute("hang_chitiet", hang);
 		// lấy đc id rồi đó.
 		return "ChiTietHang";
@@ -87,4 +95,40 @@ public class HomeController {
 //	public String register() {
 //		return "register";
 //	}
+	@RequestMapping(value = "/buy/{id}", method = RequestMethod.GET)
+	public String buy(@PathVariable("id") int id, HttpSession session) {
+//		HangDAO hang;
+		if (session.getAttribute("cart") == null) {
+			List<GioHangInfo> cart = new ArrayList<GioHangInfo>();
+			cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
+			session.setAttribute("cart", cart);
+		} else {
+			List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");
+			int index = this.exists(id, cart);
+			if (index == -1) {
+				cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
+			} else {
+				int quantity = cart.get(index).getSoLuong() + 1;
+				cart.get(index).setSoLuong(quantity);
+			}
+			session.setAttribute("cart", cart);
+		}
+		return "redirect:/cart";
+	}
+	@RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
+	public String remove(@PathVariable("id") int id, HttpSession session) {
+		List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");
+		int index = this.exists(id, cart);
+		cart.remove(index);
+		session.setAttribute("cart", cart);
+		return "redirect:/cart";
+	}
+	private int exists(int id, List<GioHangInfo> cart) {
+		for (int i = 0; i < cart.size(); i++) {
+			if (cart.get(i).getHang().getMaHang() == id) {
+				return i;
+			}
+		}
+		return -1;
+	}
 }
