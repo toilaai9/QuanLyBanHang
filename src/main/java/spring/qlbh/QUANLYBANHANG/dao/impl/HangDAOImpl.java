@@ -19,18 +19,18 @@ public class HangDAOImpl implements HangDAO {
 	public List<HangInfo> loadHang() {
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
-					+" (h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // các trường trong đối tượng HangInfo
-					+" from " + Hang.class.getName() + " h "; // để ý chỗ này, chỗ này phải cách ra, chứ k nó lỗi
+					+" (h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // cÃ¡c trÆ°á»�ng trong Ä‘á»‘i tÆ°á»£ng HangInfo
+					+" from " + Hang.class.getName() + " h "; // Ä‘á»ƒ Ã½ chá»— nÃ y, chá»— nÃ y pháº£i cÃ¡ch ra, chá»© k nÃ³ lá»—i
 		Query query = session.createQuery(sql);
 		return query.list();
 	}
-	//load hàng theo loại
+	//load hÃ ng theo loáº¡i
 	@Override
 	public List<HangInfo> loadHangTheoLoai(int maLoai){
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
-					+" ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // các trường trong đối tượng HangInfo
-					+" from " + Hang.class.getName() + " h "+"where h.maLoai=: maLoai "; // select bàng Hibernate thì nó trả về 1 đối tượng
+					+" ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // cÃ¡c trÆ°á»�ng trong Ä‘á»‘i tÆ°á»£ng HangInfo
+					+" from " + Hang.class.getName() + " h "+" where h.maLoai=: maLoai "; // select bÃ ng Hibernate thÃ¬ nÃ³ tráº£ vá»� 1 Ä‘á»‘i tÆ°á»£ng
 		Query query = session.createQuery(sql);
 		query.setParameter("maLoai", maLoai);
 		return query.list();
@@ -40,7 +40,7 @@ public class HangDAOImpl implements HangDAO {
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
 					+" ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " 
-					+" from " + Hang.class.getName() + " h "+"where h.maHang=: maHang ";
+					+" from " + Hang.class.getName() + " h "+" where h.maHang=: maHang ";
 		Query query = session.createQuery(sql);
 		query.setParameter("maHang", maHang);
 		return query.list();

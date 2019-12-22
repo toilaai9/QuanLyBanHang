@@ -46,6 +46,20 @@
 										<th>Địa Chỉ</th>
 										<th>SĐT</th>
 										<th>Loại</th>
+										<td><a
+											href="#">
+												<button data-toggle="tooltip"
+													style="border: 2px solid lightgrey; border-radius: 5px;"
+													data-original-title="Sửa">
+													<i class="fa fa-edit" aria-hidden="true"></i>
+												</button>
+										</a>
+											<button data-toggle="tooltip"
+												
+												style="border: 2px solid lightgrey; border-radius: 5px;"
+												data-original-title="Xóa">
+												<i class="fa fa-trash" aria-hidden="true"></i>
+											</button></td>
 									</tr>
 								</thead>
 								<tbody>
