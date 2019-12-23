@@ -48,8 +48,8 @@ public class UserDAOImpl implements UserDAO {
 		Session se = this.sessionFactory.getCurrentSession();
 
 		String sql = " Select new " + UserInfo.class.getName()
-				+ "(u.id, u.userName, u.passWord, u.hoTen, u.imagelink, u.diaChi, u.sDT, u.loai)" + " from "
-				+ User.class.getName() + " u where USERNAME =: us and PASSWORD =: pw";
+				+ "(u.id, u.userName, u.passWord, u.hoTen, u.imageLink, u.diaChi, u.sDT, u.loai)" + " from "
+				+ User.class.getName() + " u "+" where USERNAME =: us and PASSWORD =: pw";
 
 		Query query = se.createQuery(sql);
 		query.setParameter("us", userName);

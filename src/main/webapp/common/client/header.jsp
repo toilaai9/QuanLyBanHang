@@ -15,57 +15,61 @@
 						Stonecoal Road</a></li>
 			</ul>
 			<ul class="header-links pull-right">
-				<li>
-					<div class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown"
-							aria-expanded="true"> <i class="fa fa-user-o"
-							visibility="hidden"></i>Login
+				<c:if test="${checkUser == null }">
+					<li>
+						<div class="dropdown">
+							<a class="dropdown-toggle" data-toggle="dropdown"
+								aria-expanded="true"> <i class="fa fa-user-o"
+								visibility="hidden"></i>Login
 
-						</a>
-						<div class="cart-dropdown">
-							<div class="cart-list">
-								<form action="${pageContext.request.contextPath}/login"
-									method="post" name="formdangnhap">
-									<div class="input-group mb-3">
-										<input type="text" name="username" class="form-control"
-											placeholder="Username" required>
-										<div class="input-group-append">
-											<div class="input-group-text">
-												<span class="fas fa-envelope"></span>
+							</a>
+							<div class="cart-dropdown" style="width: 400px;    max-height: 150px;overflow-y: visible;margin-bottom: 5px;">
+								<div class="cart-list">
+									<form action="${pageContext.request.contextPath}/login"
+										method="post" name="formdangnhap">
+										<div class="input-group mb-3">
+											<input type="text" name="userName" class="form-control"
+												placeholder="Username" required>
+											<div class="input-group-append">
+												<div class="input-group-text">
+													<span class="fas fa-envelope"></span>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="input-group mb-3">
-										<input type="text" name="password" class="form-control"
-											placeholder="Password" required>
-										<div class="input-group-append">
-											<div class="input-group-text">
-												<span class="fas fa-lock"></span>
+										<div class="input-group mb-3">
+											<input type="text" name="passWord" class="form-control"
+												placeholder="Password" required>
+											<div class="input-group-append">
+												<div class="input-group-text">
+													<span class="fas fa-lock"></span>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="row">
-										<div class="col-8">
-											<div class="icheck-primary">
-												<input type="checkbox" id="remember"> <label
-													for="remember"> Remember Me </label>
+										<div class="row">
+											<div class="col-8">
+												<div class="icheck-primary">
+													<input type="checkbox" id="remember"> <label
+														for="remember"> Remember Me </label>
+												</div>
 											</div>
+											<!-- /.col -->
+											<div class="col-4">
+												<button type="submit" name="submit"
+													class="btn btn-primary btn-block">Sign In</button>
+											</div>
+											<!-- /.col -->
 										</div>
-										<!-- /.col -->
-										<div class="col-4">
-											<button type="submit" name="submit"
-												class="btn btn-primary btn-block">Sign In</button>
-										</div>
-										<!-- /.col -->
-									</div>
-								</form>
-								</body>
+									</form>
+									</body>
 
+								</div>
 							</div>
-						</div>
-					</div> <!-- /Cart -->
-				</li>
+						</div> <!-- /Cart -->
+					</li>
+				</c:if>
+<c:if test="${checkUser != null }">
 				<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+				</c:if>
 			</ul>
 		</div>
 	</div>
@@ -92,7 +96,7 @@
 				<div class="col-md-6">
 					<div class="header-search">
 						<form>
-							 <input class="input" placeholder="Search here">
+							<input class="input" placeholder="Search here">
 							<button class="search-btn">Search</button>
 						</form>
 					</div>
@@ -227,10 +231,13 @@
 			<div class="col-md-4 col-xs-6">
 				<div class="shop">
 					<div class="shop-img">
-						<img src="${pageContext.request.contextPath}/template/client/img/shop01.png" alt="">
+						<img
+							src="${pageContext.request.contextPath}/template/client/img/shop01.png"
+							alt="">
 					</div>
 					<div class="shop-body">
-						<h3> Laptop<br>Collection
+						<h3>
+							Laptop<br>Collection
 						</h3>
 						<a href="#" class="cta-btn">Shop now <i
 							class="fa fa-arrow-circle-right"></i></a>
@@ -243,7 +250,9 @@
 			<div class="col-md-4 col-xs-6">
 				<div class="shop">
 					<div class="shop-img">
-						<img src="${pageContext.request.contextPath}/template/client/img/shop03.png" alt="">
+						<img
+							src="${pageContext.request.contextPath}/template/client/img/shop03.png"
+							alt="">
 					</div>
 					<div class="shop-body">
 						<h3>
@@ -260,7 +269,9 @@
 			<div class="col-md-4 col-xs-6">
 				<div class="shop">
 					<div class="shop-img">
-						<img src="${pageContext.request.contextPath}/template/client/img/shop02.png" alt="">
+						<img
+							src="${pageContext.request.contextPath}/template/client/img/shop02.png"
+							alt="">
 					</div>
 					<div class="shop-body">
 						<h3>

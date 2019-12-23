@@ -12,12 +12,15 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
+import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
 import spring.qlbh.QUANLYBANHANG.model.GioHangInfo;
 import spring.qlbh.QUANLYBANHANG.model.HangInfo;
 import spring.qlbh.QUANLYBANHANG.model.LoaiHangInfo;
+import spring.qlbh.QUANLYBANHANG.model.UserInfo;
 
 
 
@@ -29,6 +32,8 @@ public class HomeController {
 	private HangDAO hangDAO;
 	@Autowired
 	private LoaiHangDAO loaiHangDAO;
+	@Autowired
+	private UserDAO userDAO;
 //	public String ckLogin(@RequestParam("usetname") String name, @RequestParam("pass") String pass,
 //			HttpSession session) {
 //
@@ -95,6 +100,27 @@ public class HomeController {
 //	public String register() {
 //		return "register";
 //	}
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String loginPage(Model model, @RequestParam String userName,
+			@RequestParam String passWord, HttpSession session) {
+		String request = "";
+		UserInfo us= userDAO.checkLogin(userName,passWord);
+		if(us !=null) {
+			String loai=us.getLoai();
+			if(loai.equals("0")) {
+				session.setAttribute("checkUser", us);
+				request = "redirect:/admin";	
+			} else {
+				session.setAttribute("checkUser",us);
+				request = "redirect:/";
+			}
+		}
+		else {
+			session.setAttribute("loginF","Tên đăng nhập và mật khẩu sai");
+			request="redirect:/";
+		}
+		return request;
+	}
 	@RequestMapping(value = "/buy/{id}", method = RequestMethod.GET)
 	public String buy(@PathVariable("id") int id, HttpSession session) {
 //		HangDAO hang;
