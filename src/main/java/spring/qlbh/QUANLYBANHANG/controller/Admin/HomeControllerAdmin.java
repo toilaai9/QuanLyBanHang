@@ -55,5 +55,10 @@ public class HomeControllerAdmin {
 		List<UserInfo> listUser = userDao.loadUser();
 		model.addAttribute("listUser",listUser );
 		return "admin/addUser";
-	}	
+	}
+	@RequestMapping("/admin/hang/addhang")
+	public String addHang(Model model) {
+		
+		return "admin/addHang";
+	}
 }
