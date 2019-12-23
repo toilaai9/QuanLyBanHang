@@ -1,4 +1,3 @@
-
 package spring.qlbh.QUANLYBANHANG.controller.Admin;
 
 import java.util.List;
@@ -11,48 +10,25 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
-import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
-import spring.qlbh.QUANLYBANHANG.model.HangInfo;
-import spring.qlbh.QUANLYBANHANG.model.LoaiHangInfo;
 import spring.qlbh.QUANLYBANHANG.model.UserInfo;
 
-@Controller(value = "HomeControllerAdmin")
-@RequestMapping(value = "/admin")
-public class HomeControllerAdmin {
+@Controller(value = "QuanLyUserController")
+@RequestMapping(value = "/admin/user")
+public class QuanLyUserContronller {
 	@Autowired
 	private UserDAO userDao;
-	@Autowired
-	private HangDAO hangDAO;
-	@Autowired
-	private LoaiHangDAO loaiHangDAO;
-	@RequestMapping("/admin/user")
-	public String userPage(Model model) {
-		List<UserInfo> listUser = userDao.loadUser();
-		model.addAttribute("listUser",listUser );
-		return "admin/QLUser";
-	}
-	@RequestMapping("/admin/user/delete")
+	@RequestMapping("/delete")
 	public String actionDelete(Model model, HttpServletRequest request,HttpSession session ) {
 		int id= Integer.parseInt(request.getParameter("id"));
 		userDao.xoaUser(id);
 		session.setAttribute("mess", "Xoa thanh cong!");
 		return "redirect:/admin/user";
 	}
-	@RequestMapping("/admin/hang")
-	public String Hang(Model model) {
-		List<HangInfo> hang = hangDAO.loadHang();
-		model.addAttribute("loadHang", hang);	
-		return "admin/Hang";
-	}
-
-
-	@RequestMapping("/admin/user/add")
+	@RequestMapping("/add")
 	public String addUser(Model model) {
 		List<UserInfo> listUser = userDao.loadUser();
 		model.addAttribute("listUser",listUser );
 		return "admin/addUser";
 	}
-
 }
