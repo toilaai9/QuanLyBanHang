@@ -23,42 +23,36 @@
 								visibility="hidden"></i>Login
 
 							</a>
-							<div class="cart-dropdown" style="width: 400px;    max-height: 150px;overflow-y: visible;margin-bottom: 5px;">
-								<div class="cart-list">
+							<div class="cart-dropdown"style="width: 300px; max-height: 190px;overflow-y: visible;margin-bottom: 5px;>
+								<div class="cart-list"    ">
 									<form action="${pageContext.request.contextPath}/login"
 										method="post" name="formdangnhap">
-										<div class="input-group mb-3">
+										<h3>Đăng Nhập</h3>
+										<div class="input-group" style="width:250px;">
 											<input type="text" name="userName" class="form-control"
 												placeholder="Username" required>
 											<div class="input-group-append">
-												<div class="input-group-text">
-													<span class="fas fa-envelope"></span>
-												</div>
+												
 											</div>
 										</div>
-										<div class="input-group mb-3">
-											<input type="text" name="passWord" class="form-control"
+										<div class="input-group "style="width:250px;padding-top:5px;">
+											<input type="password" name="passWord" class="form-control"
 												placeholder="Password" required>
 											<div class="input-group-append">
-												<div class="input-group-text">
-													<span class="fas fa-lock"></span>
-												</div>
+												<script>alert("Sai tài khoản hoặc mật khẩu!");</script>
 											</div>
 										</div>
 										<div class="row">
-											<div class="col-8">
-												<div class="icheck-primary">
-													<input type="checkbox" id="remember"> <label
-														for="remember"> Remember Me </label>
-												</div>
-											</div>
-											<!-- /.col -->
-											<div class="col-4">
-												<button type="submit" name="submit"
+											<div class="col-4" style="padding-left: 15px;padding-top:5px;">
+												<button type="submit" name="submit" style="width: 25%;"
 													class="btn btn-primary btn-block">Sign In</button>
 											</div>
 											<!-- /.col -->
 										</div>
+										<div >
+										<a style="color: #2B2D42;" href="register.html" class="text-center">Đăng ký thành viên</a>
+										</div>
+										 
 									</form>
 									</body>
 
