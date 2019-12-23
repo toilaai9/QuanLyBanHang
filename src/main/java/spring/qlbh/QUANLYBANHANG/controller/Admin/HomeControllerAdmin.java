@@ -27,32 +27,18 @@ public class HomeControllerAdmin {
 	private HangDAO hangDAO;
 	@Autowired
 	private LoaiHangDAO loaiHangDAO;
-	@RequestMapping("/admin/user")
+	@RequestMapping("/user")
 	public String userPage(Model model) {
 		List<UserInfo> listUser = userDao.loadUser();
 		model.addAttribute("listUser",listUser );
 		return "admin/QLUser";
 	}
-	@RequestMapping("/admin/user/delete")
-	public String actionDelete(Model model, HttpServletRequest request,HttpSession session ) {
-		int id= Integer.parseInt(request.getParameter("id"));
-		userDao.xoaUser(id);
-		session.setAttribute("mess", "Xoa thanh cong!");
-		return "redirect:/admin/user";
-	}
-	@RequestMapping("/admin/hang")
+	
+	@RequestMapping("/hang")
 	public String Hang(Model model) {
 		List<HangInfo> hang = hangDAO.loadHang();
 		model.addAttribute("loadHang", hang);	
 		return "admin/Hang";
-	}
-
-
-	@RequestMapping("/admin/user/add")
-	public String addUser(Model model) {
-		List<UserInfo> listUser = userDao.loadUser();
-		model.addAttribute("listUser",listUser );
-		return "admin/addUser";
 	}
 
 }

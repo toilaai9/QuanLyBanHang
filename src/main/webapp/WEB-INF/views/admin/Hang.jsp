@@ -13,7 +13,7 @@
 					</div>
 					<div class="col-sm-6" style="text-align: right; font-size: 20px;">
 						<!-- <a href="#" style="font-size: 20px;margin-top: 20px"class="glyphicon glyphicon-plus">Thêm</a>  -->
-						<a href="#" class="btn btn-info "> <span class="fa fa-plus"></span>
+						<a href="${pageContext.request.contextPath}/admin/hang/addhang" class="btn btn-info "> <span class="fa fa-plus"></span>
 							Thêm
 						</a>
 					</div>

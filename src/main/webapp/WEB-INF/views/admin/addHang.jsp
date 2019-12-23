@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ include file="/common/taglib.jsp"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <div class="container margin_60"style="width: 608px;">
     <section class="content-header">      
         <div >
@@ -10,7 +12,7 @@
       	<div class="row">
         	<div class="col-md-12">
           		<div class="">
-          			<form method="post"  id="form-addhang">
+          			<form method="post"  id="form-addhang" action="${pageContext.request.contextPath}/admin/hang/addhang/them">
 						<div class="row">
 							<div class="col-sm-6">
 								<div class="form-group">
@@ -37,13 +39,15 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>Loại Hàng</label>
-									<c:forEach items="${loaiHang}" var="l">
-				                    <select name="maloai" class="form-control custom-select">				                  
-				                      <option  value="">
+									
+				                    <select name="maloai" class="form-control custom-select">
+				                    <c:forEach items="${loaiHang }" var="l">				                  
+				                      <option  value="${l.maLoai }">
 				                      ${l.tenLoai}				                         
-				                      </option>				                    
+				                      </option>	
+				                      </c:forEach>			                    
 				                    </select>	
-				                    </c:forEach>								
+				                    								
                     			</div>
 							</div>
 						</div>
@@ -71,7 +75,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>Trạng Thái</label>
-				                    <select name="maloai" class="form-control custom-select"  readonly >				                  
+				                    <select name="trangthai" class="form-control custom-select"  readonly >				                  
 				                      <option  value="0">
 				                         Bán
 				                      </option>		
@@ -107,8 +111,9 @@
 								</div>	
 							</div>
 						</div>            			<div class="row" style="margin-top: 10px" >   
-            				<div class="col-sm-6">    
+            				<div class="col-sm-6"> 
 						          <button type="submit" name="submit" class="btn btn-success float-left"> Thêm Hàng</button>
+						          
 						          <a href="" class="btn btn-info " >
 						            <span ></span> Cancel
 						          </a>
@@ -120,4 +125,4 @@
         </div>  
     </section>
 </div>
-<!--  <script src="<?php echo base_url(); ?>assets/admin/js/hang.js"></script>  -->
+<
