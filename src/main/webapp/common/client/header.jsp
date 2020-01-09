@@ -90,8 +90,8 @@
 				<!-- SEARCH BAR -->
 				<div class="col-md-6">
 					<div class="header-search">
-						<form>
-							<input class="input" placeholder="Search here">
+						<form action="${pageContext.request.contextPath}/timkiem" method="get">
+							<input class="input" name="tukhoa" placeholder="Search here">
 							<button class="search-btn">Search</button>
 						</form>
 					</div>

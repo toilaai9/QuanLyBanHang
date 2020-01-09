@@ -3,6 +3,7 @@ package spring.qlbh.QUANLYBANHANG.controller;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import spring.qlbh.QUANLYBANHANG.dao.DonHangDAO;
+import spring.qlbh.QUANLYBANHANG.dao.DongDonHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
 import spring.qlbh.QUANLYBANHANG.model.DonHangInfo;
+import spring.qlbh.QUANLYBANHANG.model.DongDonHangInfo;
 import spring.qlbh.QUANLYBANHANG.model.GioHangInfo;
 import spring.qlbh.QUANLYBANHANG.model.HangInfo;
 import spring.qlbh.QUANLYBANHANG.model.LoaiHangInfo;
@@ -41,7 +44,9 @@ public class HomeController {
 	private UserDAO userDAO;
 	@Autowired
 	private DonHangDAO donHangDAO;
-
+	@Autowired
+	private DongDonHangDAO dongDonHangDAO;
+	private static Calendar cal;
 	@RequestMapping("/")
 	public String indexPage(Model model) {
 		List<HangInfo> hang = hangDAO.loadHang();
@@ -88,26 +93,23 @@ public class HomeController {
 		return "ThanhToan";
 	}
 	@RequestMapping(value = "/thanhtoan/hoantat", method = RequestMethod.POST)
-	public String thanhToan(Model model,HttpServletRequest request, HttpSession session) {
+	public String hoanTat(Model model,HttpServletRequest request, HttpSession session) {
 		int maUser;
 		Random rand = new Random();
 		int maDonHang =rand.nextInt(1000);
-		List<GioHangInfo> gH=(List<GioHangInfo>) session.getAttribute("checkUser");
-		float[] tt= {0};
-		gH.forEach((element) -> {
-            tt[0]=tt[0]+(element.getSoLuong()*element.getHang().getDonGia());
-        });
+		List<GioHangInfo> gH=(List<GioHangInfo>) session.getAttribute("cart");
+		float tt= 0;
+		for (GioHangInfo hg : gH) {
+			tt=tt+(hg.getSoLuong()*hg.getHang().getDonGia());
+		}
 		if (session.getAttribute("checkUser") == null) {
 			maUser=33;
 		}else {
 			UserInfo user=(UserInfo)session.getAttribute("checkUser");
 			maUser=user.getId();
 		}
-		long millis=System.currentTimeMillis();  
-		java.sql.Date date=new java.sql.Date(millis); 
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
-		String ngayDatHang=dateFormat.format(date);
-		float tongTien=tt[0];
+		String ngayDatHang=getToday();
+		float tongTien=tt;
 		String tenNguoiNhan=request.getParameter("tennguoinhan");
 		String email=request.getParameter("email");
 		String tinh=request.getParameter("tinhthanhpho");
@@ -116,10 +118,21 @@ public class HomeController {
 		String diaChiNhan=request.getParameter("diachinhan")+"-"+xa+"-"+huyen+"-"+tinh;
 		String sDT=request.getParameter("sdt");
 		String ghiChu=request.getParameter("ghichu");
-		int trangThai=0;
+		int trangThai=4;
 		int id=maUser;
 		DonHangInfo donhang=new DonHangInfo(maDonHang,ngayDatHang,tongTien,tenNguoiNhan,email,diaChiNhan,sDT,ghiChu,trangThai,id);
 		donHangDAO.insertDH(donhang);
+		DonHangInfo dh=donHangDAO.loadDonHangDT(maUser, 4);
+		for (GioHangInfo hg1 : gH) {
+			int maDongDonHang =rand.nextInt(1000);
+			DongDonHangInfo dongdonhang=new DongDonHangInfo(maDongDonHang,hg1.getSoLuong(),hg1.getHang().getMaHang(),dh.getMaDH());
+			dongDonHangDAO.insertDH(dongdonhang);
+			HangInfo hang=hangDAO.loadHangTheoId(hg1.getHang().getMaHang());
+			HangInfo hangTT=new HangInfo(hang.getMaHang(),hang.getTenHang(),hang.getDonGia(),hang.getImageLink(),hang.getvAT(),hang.getMaLoai(),hang.getNhaSX(),hang.getNgaySX(),hang.gettGBaoHanh(),hang.gettTThem(),hang.getSoLuongHang()-hg1.getSoLuong(),hang.getTrangThaiHang());
+			hangDAO.uploadHang(hangTT);
+		}
+		donHangDAO.updateTrangThaiDH(dh, 0);
+		session.removeAttribute("cart");
 		return "redirect:/";
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -189,4 +202,9 @@ public class HomeController {
 		}
 		return -1;
 	}
+	public static String getToday() {
+		cal = Calendar.getInstance();
+		return cal.get(Calendar.YEAR) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" + cal.get(Calendar.DAY_OF_MONTH);
+	}
+
 }

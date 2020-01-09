@@ -18,9 +18,13 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import spring.qlbh.QUANLYBANHANG.dao.DonHangDAO;
+import spring.qlbh.QUANLYBANHANG.dao.DongDonHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
+import spring.qlbh.QUANLYBANHANG.dao.impl.DonHangDAOImpl;
+import spring.qlbh.QUANLYBANHANG.dao.impl.DongDonHangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.HangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.LoaiHangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.UserDAOImpl;
@@ -105,5 +109,12 @@ public class ApplicationContextConfig {
 	public LoaiHangDAO loadMenu() {
 		return new LoaiHangDAOImpl();
 	}
-
+	@Bean(name="don_hang_DAO")
+	public DonHangDAO loadDH() {
+		return new DonHangDAOImpl();
+	}
+	@Bean(name="dong_don_hang_DAO")
+	public DongDonHangDAO loadDDH() {
+		return new DongDonHangDAOImpl();
+	}
 }

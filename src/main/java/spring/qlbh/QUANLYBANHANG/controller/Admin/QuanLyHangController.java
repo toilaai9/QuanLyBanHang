@@ -45,8 +45,6 @@ public class QuanLyHangController {
 		Calendar cal = Calendar.getInstance();
 		int maHang =rand.nextInt(1000); 
 		String tenHang=request.getParameter("txttenhang");
-		System.out.println("---------------------------------");
-		System.out.println(tenHang);
 		int donGia=Integer.parseInt(request.getParameter("txtdongia"));
 		float vat=Float.parseFloat(request.getParameter("txtvat"));
 		int loai=Integer.parseInt(request.getParameter("maloai"));

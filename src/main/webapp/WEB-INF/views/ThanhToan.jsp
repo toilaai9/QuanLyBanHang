@@ -7,6 +7,7 @@
 <head>
 </head>
 <body>
+<form method="post"  id="form-addhang" action="${pageContext.request.contextPath}/thanhtoan/hoantat">
 <div class="section">
 			<!-- container -->
 			<div class="container">
@@ -81,7 +82,8 @@
 								<div><strong class="order-total"><fmt:formatNumber type="currency" value="${total }" /></strong></div>
 							</div>
 						</div>
-						<a href="#" class="primary-btn order-submit">Hoàn thành</a>
+						<button type="submit" name="submit" class="btn btn-success float-left"> Hoàn thành</button>
+						
 					</div>
 					<!-- /Order Details -->
 				</div>
@@ -89,6 +91,6 @@
 			</div>
 			<!-- /container -->
 		</div>
-
+</form>
 </body>
 </html>
