@@ -18,7 +18,7 @@
 				<c:if test="${checkUser == null }">
 					<li>
 						<div class="dropdown">
-							<a class="dropdown-toggle" data-toggle="dropdown"
+							<a class="dropdown-toggle" id="login" data-toggle="dropdown"
 								aria-expanded="true"> <i class="fa fa-user-o"
 								visibility="hidden"></i>Login
 
@@ -39,13 +39,14 @@
 											<input type="password" name="passWord" class="form-control"
 												placeholder="Password" required>
 											<div class="input-group-append">
-												<script>alert("Sai tài khoản hoặc mật khẩu!");</script>
+												
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-4" style="padding-left: 15px;padding-top:5px;">
+											<a href="${pageContext.request.contextPath}">
 												<button type="submit" name="submit" style="width: 25%;"
-													class="btn btn-primary btn-block">Sign In</button>
+													class="btn btn-primary btn-block">Sign In</button></a>
 											</div>
 											<!-- /.col -->
 										</div>
@@ -121,9 +122,6 @@
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
-									<c:if test="${sessionScope.cart == null}">
-										<h4>ko có sp</h4>
-									</c:if>
 									<c:if test="${sl == 0}">
 										<h4>ko có sp</h4>
 									</c:if>
@@ -166,10 +164,31 @@
 									</h5>
 								</div>
 								<div class="cart-btns">
-									<a href="${pageContext.request.contextPath}/cart">Xem giỏ
-										hàng</a> <a href="${pageContext.request.contextPath}/checkout">Thanh
+								<c:if test="${sl == 0}">
+										<a href="#">Xem giỏ
+										hàng</a>
+									</c:if>
+									<c:if test="${sl != 0}">
+										<a href="${pageContext.request.contextPath}/cart">Xem giỏ
+										hàng</a>
+									</c:if>
+									 <c:if test="${sl != 0}">
+										<c:if test="${checkUser != null }">
+										<a href="${pageContext.request.contextPath}/thanhtoan">Thanh
 										toán <i class="fa fa-arrow-circle-right"></i>
 									</a>
+									</c:if>
+									</c:if>
+									 <c:if test="${sl == 0}">
+										<c:if test="${checkUser != null }">
+										<a href="#">Thanh
+										toán <i class="fa fa-arrow-circle-right"></i>
+									</a>
+									</c:if>
+									</c:if>
+									<c:if test="${checkUser == null }"><a href="${pageContext.request.contextPath}/" onclick="return alert('Vui lòng đăng nhập để thanh toán!')">Thanh
+										toán <i class="fa fa-arrow-circle-right"></i>
+									</a></c:if>
 								</div>
 							</div>
 						</div>

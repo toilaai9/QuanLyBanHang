@@ -21,12 +21,7 @@ public class HangDAOImpl implements HangDAO {
 	public List<HangInfo> loadHang() {
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
-				+ " (h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // cÃ¡c
-																																								// trÆ°á»�ng
-																																								// trong
-																																								// Ä‘á»‘i
-																																								// tÆ°á»£ng
-																																								// HangInfo
+				+ " (h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // cÃ¡c																																			// HangInfo
 				+ " from " + Hang.class.getName() + " h "; // Ä‘á»ƒ Ã½ chá»— nÃ y, chá»— nÃ y
 															// pháº£i cÃ¡ch ra, chá»© k nÃ³ lá»—i
 		Query query = session.createQuery(sql);

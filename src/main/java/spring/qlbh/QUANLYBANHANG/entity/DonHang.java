@@ -15,7 +15,6 @@ public class DonHang {
 	private String email;
 	private String diaChiNhanHang;
 	private String sDT;
-	private String soTK;
 	private String ghiChu;
 	private int trangThai;
 	private int id;
@@ -68,13 +67,6 @@ public class DonHang {
 	}
 	public void setsDT(String sDT) {
 		this.sDT = sDT;
-	}
-	@Column(name="SOTK")
-	public String getSoTK() {
-		return soTK;
-	}
-	public void setSoTK(String soTK) {
-		this.soTK = soTK;
 	}
 	@Column(name="GHICHU")
 	public String getGhiChu() {

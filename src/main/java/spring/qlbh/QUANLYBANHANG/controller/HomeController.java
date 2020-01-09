@@ -1,7 +1,10 @@
 package spring.qlbh.QUANLYBANHANG.controller;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -14,9 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import spring.qlbh.QUANLYBANHANG.dao.DonHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
+import spring.qlbh.QUANLYBANHANG.model.DonHangInfo;
 import spring.qlbh.QUANLYBANHANG.model.GioHangInfo;
 import spring.qlbh.QUANLYBANHANG.model.HangInfo;
 import spring.qlbh.QUANLYBANHANG.model.LoaiHangInfo;
@@ -34,18 +39,9 @@ public class HomeController {
 	private LoaiHangDAO loaiHangDAO;
 	@Autowired
 	private UserDAO userDAO;
-//	public String ckLogin(@RequestParam("usetname") String name, @RequestParam("pass") String pass,
-//			HttpSession session) {
-//
-//		boolean kt = userDao.checkLogin(name, pass);
-//		if (kt) {
-//			return "userInfo";
-//		} else {
-//			session.setAttribute("loi", "Tai khoan sai");
-//		}
-//		return "Index";
-//	}
-	
+	@Autowired
+	private DonHangDAO donHangDAO;
+
 	@RequestMapping("/")
 	public String indexPage(Model model) {
 		List<HangInfo> hang = hangDAO.loadHang();
@@ -77,7 +73,6 @@ public class HomeController {
 		int maHang=Integer.parseInt(request.getParameter("id"));
 		HangInfo hang = hangDAO.loadHangTheoId(maHang);
 		model.addAttribute("hang_chitiet", hang);
-		// lấy đc id rồi đó.
 		return "ChiTietHang";
 	}
 	//cách khác
@@ -92,14 +87,41 @@ public class HomeController {
 	public String thanhToan(Model model) {
 		return "ThanhToan";
 	}
-//	@RequestMapping("/login")
-//	public String login(Model model) {
-//		return "login_view";
-//	}
-//	@RequestMapping("/register")
-//	public String register() {
-//		return "register";
-//	}
+	@RequestMapping(value = "/thanhtoan/hoantat", method = RequestMethod.POST)
+	public String thanhToan(Model model,HttpServletRequest request, HttpSession session) {
+		int maUser;
+		Random rand = new Random();
+		int maDonHang =rand.nextInt(1000);
+		List<GioHangInfo> gH=(List<GioHangInfo>) session.getAttribute("checkUser");
+		float[] tt= {0};
+		gH.forEach((element) -> {
+            tt[0]=tt[0]+(element.getSoLuong()*element.getHang().getDonGia());
+        });
+		if (session.getAttribute("checkUser") == null) {
+			maUser=33;
+		}else {
+			UserInfo user=(UserInfo)session.getAttribute("checkUser");
+			maUser=user.getId();
+		}
+		long millis=System.currentTimeMillis();  
+		java.sql.Date date=new java.sql.Date(millis); 
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+		String ngayDatHang=dateFormat.format(date);
+		float tongTien=tt[0];
+		String tenNguoiNhan=request.getParameter("tennguoinhan");
+		String email=request.getParameter("email");
+		String tinh=request.getParameter("tinhthanhpho");
+		String huyen=request.getParameter("quanhuyen");
+		String xa=request.getParameter("phuongxa");
+		String diaChiNhan=request.getParameter("diachinhan")+"-"+xa+"-"+huyen+"-"+tinh;
+		String sDT=request.getParameter("sdt");
+		String ghiChu=request.getParameter("ghichu");
+		int trangThai=0;
+		int id=maUser;
+		DonHangInfo donhang=new DonHangInfo(maDonHang,ngayDatHang,tongTien,tenNguoiNhan,email,diaChiNhan,sDT,ghiChu,trangThai,id);
+		donHangDAO.insertDH(donhang);
+		return "redirect:/";
+	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPage(Model model, @RequestParam String userName,
 			@RequestParam String passWord, HttpSession session) {
@@ -123,7 +145,6 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/buy/{id}", method = RequestMethod.GET)
 	public String buy(@PathVariable("id") int id, HttpSession session) {
-//		HangDAO hang;
 		if (session.getAttribute("cart") == null) {
 			List<GioHangInfo> cart = new ArrayList<GioHangInfo>();
 			cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
@@ -143,23 +164,13 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/minus/{id}", method = RequestMethod.GET)
 	public String minus(@PathVariable("id") int id, HttpSession session) {
-//		HangDAO hang;
-//		if (session.getAttribute("cart") == null) {
-//			List<GioHangInfo> cart = new ArrayList<GioHangInfo>();
-//			cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
-//			session.setAttribute("cart", cart);
-//		} else {
 			List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");
 			int index = this.exists(id, cart);
-//			if (index == -1) {
-//				cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
-//			} else {
 			if(cart.get(index).getSoLuong()>1) {
 				int quantity = cart.get(index).getSoLuong() - 1;
 				cart.get(index).setSoLuong(quantity);
 			}
 			session.setAttribute("cart", cart);
-//		}
 		return "redirect:/cart";
 	}
 	@RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
