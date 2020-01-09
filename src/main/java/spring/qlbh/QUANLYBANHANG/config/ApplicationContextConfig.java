@@ -16,11 +16,17 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import spring.qlbh.QUANLYBANHANG.dao.DonHangDAO;
+import spring.qlbh.QUANLYBANHANG.dao.DongDonHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
+import spring.qlbh.QUANLYBANHANG.dao.impl.DonHangDAOImpl;
+import spring.qlbh.QUANLYBANHANG.dao.impl.DongDonHangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.HangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.LoaiHangDAOImpl;
 import spring.qlbh.QUANLYBANHANG.dao.impl.UserDAOImpl;
@@ -39,7 +45,15 @@ public class ApplicationContextConfig {
 		viewResolver.setSuffix(".jsp");
 		return viewResolver;
 	}
+	@Bean(name = "multipartResolver")
+	public MultipartResolver getMultipartResolver() {
+		CommonsMultipartResolver resover = new CommonsMultipartResolver();
+		// 1MB
+		resover.setMaxUploadSize(1 * 1024 * 1024);
 
+		return resover;
+	}
+	
 	@Autowired
 	private Environment env;
 
@@ -105,5 +119,12 @@ public class ApplicationContextConfig {
 	public LoaiHangDAO loadMenu() {
 		return new LoaiHangDAOImpl();
 	}
-
+	@Bean(name="don_hang_DAO")
+	public DonHangDAO loadDonHang() {
+		return new DonHangDAOImpl();
+	}
+	@Bean(name="dong_don_hang_DAO")
+	public DongDonHangDAO XemDonHang() {
+		return new DongDonHangDAOImpl();
+	}
 }

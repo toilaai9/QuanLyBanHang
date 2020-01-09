@@ -11,11 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import spring.qlbh.QUANLYBANHANG.dao.DonHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.HangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.LoaiHangDAO;
 import spring.qlbh.QUANLYBANHANG.dao.UserDAO;
+import spring.qlbh.QUANLYBANHANG.model.DonHangInfo;
 import spring.qlbh.QUANLYBANHANG.model.HangInfo;
-import spring.qlbh.QUANLYBANHANG.model.LoaiHangInfo;
+
 import spring.qlbh.QUANLYBANHANG.model.UserInfo;
 
 @Controller(value = "HomeControllerAdmin")
@@ -25,8 +27,9 @@ public class HomeControllerAdmin {
 	private UserDAO userDao;
 	@Autowired
 	private HangDAO hangDAO;
+
 	@Autowired
-	private LoaiHangDAO loaiHangDAO;
+	private DonHangDAO donHangDAO;
 	@RequestMapping("/user")
 	public String userPage(Model model) {
 		List<UserInfo> listUser = userDao.loadUser();
@@ -40,5 +43,10 @@ public class HomeControllerAdmin {
 		model.addAttribute("loadHang", hang);	
 		return "admin/Hang";
 	}
-
+	@RequestMapping("/xulydonhang")
+	public String xuLyDonHang(Model model) {
+		List<DonHangInfo> donhang = donHangDAO.loadDonHang();
+		model.addAttribute("donHang", donhang);	
+		return "admin/XuLyDonHang";
+	}
 }

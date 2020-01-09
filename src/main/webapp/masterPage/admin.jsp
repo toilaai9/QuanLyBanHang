@@ -46,12 +46,13 @@
 
 		<!-- Navbar -->
 		<nav
-			class="main-header navbar navbar-expand navbar-white navbar-light" style="background-color: darkslategrey;">
+			class="main-header navbar navbar-expand navbar-white navbar-light"
+			style="background-color: darkslategrey;">
 			<!-- Left navbar links -->
 			<ul class="navbar-nav">
 				<li class="nav-item"><a class="nav-link" data-widget="pushmenu"
 					href="#"><i class="fas fa-bars"></i></a></li>
-				
+
 			</ul>
 
 			<!-- SEARCH FORM -->
@@ -70,17 +71,14 @@
 			<!-- Right navbar links -->
 			<ul class="navbar-nav ml-auto">
 				<!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="<?php echo base_url()?>user/load_tt_user/">
-                                <img src="#"
-									alt=""/>
-                                <span class="hidden-xs">Ngo Nam </span>
-                            </a>
-                        <li>
-                            <a id="logout_btn" href="#" data-toggle="control-sidebar"><i style=' margin-left: 10px;margin-right: 10px; font-size:18px '
-                                    class="fas fa-sign-out-alt"></i></a>
-                        </li>
-                        </li>
+				<li class="dropdown user user-menu"><a
+					href="<?php echo base_url()?>user/load_tt_user/"> <img src="#"
+						alt="" /> <span class="hidden-xs">Ngo Nam </span>
+				</a>
+				<li><a id="logout_btn" href="#" data-toggle="control-sidebar"><i
+						style='margin-left: 10px; margin-right: 10px; font-size: 18px'
+						class="fas fa-sign-out-alt"></i></a></li>
+				</li>
 
 			</ul>
 		</nav>
@@ -136,7 +134,25 @@
 								<p>
 									Quản Đơn Hàng <i class="fas fa-angle-left right"></i>
 								</p>
-						</a></li>
+						</a>
+						<ul class="nav nav-treeview" style="display: block;">
+								<li class="nav-item"><a href="" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Xử Lý Hóa Đơn</p>
+								</a></li>
+								<li class="nav-item"><a href="" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Chờ Thanh Toán</p>
+								</a></li>
+								<li class="nav-item"><a href="" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Đã Hoàn Thành</p>
+								</a></li>
+								<li class="nav-item"><a href="" class="nav-link"> <i
+										class="far fa-circle nav-icon"></i>
+										<p>Đã Hủy</p>
+								</a></li>
+							</ul></li>
 					</ul>
 				</nav>
 				<!-- /.sidebar-menu -->
@@ -145,7 +161,7 @@
 		</aside>
 
 		<!-- Content Wrapper. Contains page content -->
-		
+
 		<dec:body></dec:body>
 		<!-- /.content-wrapper -->
 		<footer class="main-footer">

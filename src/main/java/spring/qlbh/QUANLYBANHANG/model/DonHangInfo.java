@@ -8,7 +8,6 @@ public class DonHangInfo {
 	private String email;
 	private String diaChiNhanHang;
 	private String sDT;
-	private String soTK;
 	private String ghiChu;
 	private int trangThai;
 	private int id;
@@ -19,7 +18,7 @@ public class DonHangInfo {
 	}
 	
 	public DonHangInfo(int maDH, String ngayDatHang, float tongTien, String tenNguoiNhan, String email,
-			String diaChiNhanHang, String sDT, String soTK, String ghiChu, int trangThai, int id) {
+			String diaChiNhanHang, String sDT, String ghiChu, int trangThai, int id) {
 		super();
 		this.maDH = maDH;
 		this.ngayDatHang = ngayDatHang;
@@ -28,7 +27,7 @@ public class DonHangInfo {
 		this.email = email;
 		this.diaChiNhanHang = diaChiNhanHang;
 		this.sDT = sDT;
-		this.soTK = soTK;
+
 		this.ghiChu = ghiChu;
 		this.trangThai = trangThai;
 		this.id = id;
@@ -76,12 +75,7 @@ public class DonHangInfo {
 	public void setsDT(String sDT) {
 		this.sDT = sDT;
 	}
-	public String getSoTK() {
-		return soTK;
-	}
-	public void setSoTK(String soTK) {
-		this.soTK = soTK;
-	}
+
 	public String getGhiChu() {
 		return ghiChu;
 	}

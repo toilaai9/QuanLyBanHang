@@ -1,5 +1,7 @@
 package spring.qlbh.QUANLYBANHANG.model;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 public class HangInfo {
 	private int maHang;
 	private String tenHang;
@@ -13,6 +15,7 @@ public class HangInfo {
 	private String tTThem;
 	private int soLuongHang;
 	private int trangThaiHang;
+	private CommonsMultipartFile anh;
 	public HangInfo(int maHang, String tenHang, int donGia, String imageLink, float vAT, int maLoai, String nhaSX,
 			String ngaySX, String tGBaoHanh, String tTThem, int soLuongHang, int trangThaiHang) {
 		super();
@@ -29,6 +32,12 @@ public class HangInfo {
 		this.soLuongHang = soLuongHang;
 		this.trangThaiHang = trangThaiHang;
 	}
+	
+	public HangInfo(CommonsMultipartFile anh) {
+		super();
+		this.anh = anh;
+	}
+
 	public HangInfo() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -105,5 +114,14 @@ public class HangInfo {
 	public void setTrangThaiHang(int trangThaiHang) {
 		this.trangThaiHang = trangThaiHang;
 	}
+
+	public CommonsMultipartFile getAnh() {
+		return anh;
+	}
+
+	public void setAnh(CommonsMultipartFile anh) {
+		this.anh = anh;
+	}
+	
 	
 }
