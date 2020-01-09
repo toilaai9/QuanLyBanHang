@@ -28,8 +28,7 @@ public class HomeControllerAdmin {
 	@Autowired
 	private HangDAO hangDAO;
 
-	@Autowired
-	private DonHangDAO donHangDAO;
+
 	@RequestMapping("/user")
 	public String userPage(Model model) {
 		List<UserInfo> listUser = userDao.loadUser();
@@ -43,10 +42,5 @@ public class HomeControllerAdmin {
 		model.addAttribute("loadHang", hang);	
 		return "admin/Hang";
 	}
-	@RequestMapping("/xulydonhang")
-	public String xuLyDonHang(Model model) {
-		List<DonHangInfo> donhang = donHangDAO.loadDonHang();
-		model.addAttribute("donHang", donhang);	
-		return "admin/XuLyDonHang";
-	}
+	
 }

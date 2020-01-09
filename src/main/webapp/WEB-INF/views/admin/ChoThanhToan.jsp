@@ -36,23 +36,20 @@
 						<td>${dh.sDT}</td>
 						<td>${dh.tongTien}</td>
 
-						<td><a
-							href="${pageContext.request.contextPath}/admin/donhang/xemdonhang?maDH=${dh.maDH }"
-							class="btn btn-info " style="padding: 1px;">Xem</a> 
+						<td>
 							<a
-							href="${pageContext.request.contextPath}/admin/donhang/xulydonhang/chapthuan?maDH=${dh.maDH }" onclick="
-							return confirm('Bạn có chắc chắn muốn chấp thuận đơn hàng này không? ')">
+							href="${pageContext.request.contextPath}/admin/donhang/chothanhtoan/thanhtoan?maDH=${dh.maDH }" onclick="
+							return confirm('Bạn có chắc chắn đơn hàng này đã thanh toán ? ')">
 								<button type="submit" name="submit"
-									class="btn btn-success float-left" style="padding: 1px;">Chấp
-									Thuận</button>
+									class="btn btn-success float-left" style="padding: 1px;"> Đã Thanh Toán</button>
 						</a>
 						<a
-							href="${pageContext.request.contextPath}/admin/donhang/xulydonhang/huy?maDH=${dh.maDH }" onclick="
-							return confirm('Bạn có chắc chắn muốn hủy đơn hàng này không? ')">
+							href="${pageContext.request.contextPath}/admin/donhang/chothanhtoan/trave?maDH=${dh.maDH }" onclick="
+							return confirm('Bạn có chắc chắn đơn hàng này đã trả về? ')">
 							<button type="submit" name="submit"
 								class="btn btn-success float-left"
-								style="background-color: #df2626; padding: 1px;">Hủy</button></td>
-								</a>
+								style="background-color: #df2626; padding: 1px;">Đã Trả Về</button></a>
+								</td>
 					</tr>
 				</c:forEach>
 			</tbody>

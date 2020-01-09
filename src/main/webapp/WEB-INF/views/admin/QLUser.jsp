@@ -70,14 +70,15 @@
 													<i class="fa fa-edit" aria-hidden="true"></i>
 												</button>
 										</a>
-										<a href="${pageContext.request.contextPath}/admin/user/delete?id=${u.id}" onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không? ')">
-											<button data-toggle="tooltip"
-													style="border: 2px solid lightgrey; border-radius: 5px;"
-													data-original-title="Xóa">
-												<i class="fa fa-trash" aria-hidden="true"></i>
-											</button>
-											</a>
-											</td>
+										<a
+												href="${pageContext.request.contextPath}/admin/user/delete?id=${u.id}"
+												onclick="return confirm('Bạn có chắc chắn muốn xóa người dùng này không? ')">
+													<button data-toggle="tooltip"
+														style="border: 2px solid lightgrey; border-radius: 5px;"
+														data-original-title="Xóa">
+														<i class="fa fa-trash" aria-hidden="true"></i>
+													</button>
+											</a></td>
 										</tr>
 								
 								</tbody>

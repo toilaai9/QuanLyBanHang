@@ -111,7 +111,7 @@
 						data-widget="treeview" role="menu" data-accordion="false">
 						<!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-						<li class="nav-item has-treeview"><a href="#"
+						<li class="nav-item has-treeview"><a href="${pageContext.request.contextPath}/admin/hang"
 							class="nav-link"> <i class="nav-icon fas fa-copy"></i>
 								<p>
 									Quản Lý Hàng <i class="fas fa-angle-left right"> </i>
@@ -123,32 +123,32 @@
 									Quản Lý Loại Hàng <i class="fas fa-angle-left right"></i>
 								</p>
 						</a></li>
-						<li class="nav-item has-treeview"><a href="#"
+						<li class="nav-item has-treeview"><a href="${pageContext.request.contextPath}/admin/user"
 							class="nav-link"> <i class="nav-icon fas fa-users"></i>
 								<p>
 									Quản Lý Nhân Viên <i class="fas fa-angle-left right"></i>
 								</p>
 						</a></li>
-						<li class="nav-item has-treeview"><a href="#"
+						<li class="nav-item has-treeview"><a href="${pageContext.request.contextPath}/admin/donhang/xulydonhang"
 							class="nav-link"> <i class="nav-icon fas fa-file"></i>
 								<p>
 									Quản Đơn Hàng <i class="fas fa-angle-left right"></i>
 								</p>
 						</a>
 						<ul class="nav nav-treeview" style="display: block;">
-								<li class="nav-item"><a href="" class="nav-link"> <i
+								<li class="nav-item"><a href="${pageContext.request.contextPath}/admin/donhang/xulydonhang" class="nav-link"> <i
 										class="far fa-circle nav-icon"></i>
 										<p>Xử Lý Hóa Đơn</p>
 								</a></li>
-								<li class="nav-item"><a href="" class="nav-link"> <i
+								<li class="nav-item"><a href="${pageContext.request.contextPath}/admin/donhang/chothanhtoan" class="nav-link"> <i
 										class="far fa-circle nav-icon"></i>
 										<p>Chờ Thanh Toán</p>
 								</a></li>
-								<li class="nav-item"><a href="" class="nav-link"> <i
+								<li class="nav-item"><a href="${pageContext.request.contextPath}/admin/donhang/dahoanthanh" class="nav-link"> <i
 										class="far fa-circle nav-icon"></i>
 										<p>Đã Hoàn Thành</p>
 								</a></li>
-								<li class="nav-item"><a href="" class="nav-link"> <i
+								<li class="nav-item"><a href="${pageContext.request.contextPath}/admin/donhang/dahuy" class="nav-link"> <i
 										class="far fa-circle nav-icon"></i>
 										<p>Đã Hủy</p>
 								</a></li>

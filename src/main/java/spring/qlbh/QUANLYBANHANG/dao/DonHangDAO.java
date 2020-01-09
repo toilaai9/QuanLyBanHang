@@ -10,5 +10,6 @@ public interface DonHangDAO {
 	public void insertDH(DonHangInfo donhang);
 	public void updateTrangThaiDH(DonHangInfo donhang,int trangThai);
 	public DonHangInfo loadDonHangDT(int id,int trangThai);
-	public List<DonHangInfo> loadDonHang();
+	public List<DonHangInfo> loadDonHang(int trangThai);
+	public DonHangInfo loadDonHangTheoID(int maDH);
 }
