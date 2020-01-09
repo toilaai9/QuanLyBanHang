@@ -10,10 +10,51 @@ import org.springframework.beans.factory.annotation.Autowired;
 import spring.qlbh.QUANLYBANHANG.dao.DonHangDAO;
 import spring.qlbh.QUANLYBANHANG.entity.DonHang;
 import spring.qlbh.QUANLYBANHANG.model.DonHangInfo;
-
 public class DonHangDAOImpl implements DonHangDAO{
 	@Autowired
 	private SessionFactory sessionfactory;
+	public void insertDH(DonHangInfo donhang) {
+		Session session = sessionfactory.getCurrentSession();
+		DonHang donHangEntity = new DonHang();
+		donHangEntity.setMaDH(donhang.getMaDH());
+		donHangEntity.setNgayDatHang(donhang.getNgayDatHang());
+		donHangEntity.setTongTien(donhang.getTongTien());
+		donHangEntity.setTenNguoiNhan(donhang.getTenNguoiNhan());
+		donHangEntity.setEmail(donhang.getEmail());
+		donHangEntity.setDiaChiNhanHang(donhang.getDiaChiNhanHang());
+		donHangEntity.setsDT(donhang.getsDT());
+		donHangEntity.setGhiChu(donhang.getGhiChu());
+		donHangEntity.setTrangThai(donhang.getTrangThai());
+		donHangEntity.setId(donhang.getId());
+
+		session.persist(donHangEntity);
+	}
+	public void updateTrangThaiDH(DonHangInfo donhang,int trangThai) {
+		Session session = sessionfactory.getCurrentSession();
+		DonHang donHangEntity = new DonHang();
+		donHangEntity.setMaDH(donhang.getMaDH());
+		donHangEntity.setNgayDatHang(donhang.getNgayDatHang());
+		donHangEntity.setTongTien(donhang.getTongTien());
+		donHangEntity.setTenNguoiNhan(donhang.getTenNguoiNhan());
+		donHangEntity.setEmail(donhang.getEmail());
+		donHangEntity.setDiaChiNhanHang(donhang.getDiaChiNhanHang());
+		donHangEntity.setsDT(donhang.getsDT());
+		donHangEntity.setGhiChu(donhang.getGhiChu());
+		donHangEntity.setTrangThai(trangThai);
+		donHangEntity.setId(donhang.getId());
+		session.update(donHangEntity);
+	}
+	@Override
+	public DonHangInfo loadDonHangDT(int id,int trangThai) {
+		Session session = sessionfactory.getCurrentSession();
+		String sql = " select new  " + DonHangInfo.class.getName()
+				+ " ( dh.maDH, dh.ngayDatHang, dh.tongTien, dh.tenNguoiNhan, dh.email, dh.diaChiNhanHang, dh.sDT, dh.ghiChu, dh.trangThai, dh.id) "
+				+ " from " + DonHang.class.getName() + " dh " + " where dh.trangThai=:trangThai and dh.id=:id";
+		Query query = session.createQuery(sql);
+		query.setParameter("trangThai", trangThai);
+		query.setParameter("id", id);
+		return (DonHangInfo) query.uniqueResult();
+	}
 	@Override
 	public List<DonHangInfo> loadDonHang() {
 		Session session = sessionfactory.getCurrentSession();

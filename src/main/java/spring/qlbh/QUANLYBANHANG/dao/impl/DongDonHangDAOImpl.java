@@ -13,10 +13,22 @@ import spring.qlbh.QUANLYBANHANG.entity.DongDonHang;
 import spring.qlbh.QUANLYBANHANG.entity.Hang;
 import spring.qlbh.QUANLYBANHANG.model.DanhSachHang;
 
-public class DongDonHangDAOImpl implements DongDonHangDAO {
+import spring.qlbh.QUANLYBANHANG.model.DongDonHangInfo;
+
+public class DongDonHangDAOImpl implements DongDonHangDAO{
 	@Autowired
 	private SessionFactory sessionfactory;
+	public void insertDH(DongDonHangInfo dongdonhang) {
+		Session session = sessionfactory.getCurrentSession();
+		DongDonHang dongDonHangEntity = new DongDonHang();
+		dongDonHangEntity.setMaDDH(dongdonhang.getMaDDH());
+		dongDonHangEntity.setSoLuong(dongdonhang.getSoLuong());
+		dongDonHangEntity.setMaHang(dongdonhang.getMaHang());
+		dongDonHangEntity.setMaDH(dongdonhang.getMaDH());
+		
 
+		session.persist(dongDonHangEntity);
+	}
 	@Override
 	public List<DanhSachHang> XemDonHang(int maDH) {
 		Session session = sessionfactory.getCurrentSession();
@@ -29,5 +41,4 @@ public class DongDonHangDAOImpl implements DongDonHangDAO {
 		query.setParameter("maDH", maDH);
 		return query.list();
 	}
-
 }

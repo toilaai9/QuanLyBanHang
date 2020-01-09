@@ -21,12 +21,7 @@ public class HangDAOImpl implements HangDAO {
 	public List<HangInfo> loadHang() {
 		Session session = sessionfactory.getCurrentSession();
 		String sql = " select new  " + HangInfo.class.getName()
-				+ " (h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // cÃ¡c
-																																								// trÆ°á»�ng
-																																								// trong
-																																								// Ä‘á»‘i
-																																								// tÆ°á»£ng
-																																								// HangInfo
+				+ " (h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) " // cÃ¡c																																			// HangInfo
 				+ " from " + Hang.class.getName() + " h "; // Ä‘á»ƒ Ã½ chá»— nÃ y, chá»— nÃ y
 															// pháº£i cÃ¡ch ra, chá»© k nÃ³ lá»—i
 		Query query = session.createQuery(sql);
@@ -95,5 +90,34 @@ public class HangDAOImpl implements HangDAO {
 		session.persist(hangentity);
 
 	}
+	@Override
+	public void uploadHang(HangInfo hangInfo) {
+		Session session = sessionfactory.getCurrentSession();
+		Hang hangentity = new Hang();
+		hangentity.setMaHang(hangInfo.getMaHang());
+		hangentity.setTenHang(hangInfo.getTenHang());
+		hangentity.setDonGia(hangInfo.getDonGia());
+		hangentity.setImageLink(hangInfo.getImageLink());
+		hangentity.setvAT(hangInfo.getvAT());
+		hangentity.setMaLoai(hangInfo.getMaLoai());
+		hangentity.setNhaSX(hangInfo.getNhaSX());
+		hangentity.setNgaySX(hangInfo.getNgaySX());
+		hangentity.settGBaoHanh(hangInfo.gettGBaoHanh());
+		hangentity.settTThem(hangInfo.gettTThem());
+		hangentity.setSoLuongHang(hangInfo.getSoLuongHang());
+		hangentity.setTrangThaiHang(hangInfo.getTrangThaiHang());
 
+		session.update(hangentity);
+
+	}
+//	@Override
+//	public HangInfo loadHangTheoTen(String tenHang) {
+//		Session session = sessionfactory.getCurrentSession();
+//		String sql = " select new  " + HangInfo.class.getName()
+//				+ " ( h.maHang, h.tenHang, h.donGia, h.imageLink, h.vAT, h.maLoai, h.nhaSX, h.ngaySX, h.tGBaoHanh, h.tTThem, h.soLuongHang, h.trangThaiHang) "
+//				+ " from " + Hang.class.getName() + " h " + " where h.tenHang=: tenHang ";
+//		Query query = session.createQuery(sql);
+//		query.setParameter("tenHang", tenHang);
+//		return (HangInfo) query.uniqueResult();
+//	}
 }

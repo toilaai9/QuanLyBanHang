@@ -27,7 +27,6 @@ public class DonHangInfo {
 		this.email = email;
 		this.diaChiNhanHang = diaChiNhanHang;
 		this.sDT = sDT;
-
 		this.ghiChu = ghiChu;
 		this.trangThai = trangThai;
 		this.id = id;
@@ -75,7 +74,10 @@ public class DonHangInfo {
 	public void setsDT(String sDT) {
 		this.sDT = sDT;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 85bc27ededb536b6862e2a138032e11794ec3b1d
 	public String getGhiChu() {
 		return ghiChu;
 	}

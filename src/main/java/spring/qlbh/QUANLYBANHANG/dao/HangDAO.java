@@ -14,5 +14,6 @@ public interface HangDAO {
 	public HangInfo loadHangTheoTen(String tenHang);
 	public HangInfo loadHangTheoId(int maHang);
 	public void insertHang(HangInfo hangInfo);
+	public void uploadHang(HangInfo hangInfo);
 	
 }

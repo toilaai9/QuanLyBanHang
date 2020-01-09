@@ -103,7 +103,7 @@
 									<td></td>
 									<td>
 										<div>
-											<a class="primary-btn" id="thanhtoan" href="${pageContext.request.contextPath}/thanhtoan">Thanh Toán</a>
+									<a class="primary-btn" id="thanhtoan" href="${pageContext.request.contextPath}/thanhtoan">Thanh Toán</a>
 
 										</div>
 									</td>

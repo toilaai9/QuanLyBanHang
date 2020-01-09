@@ -89,10 +89,6 @@ public class QuanLyHangController {
 
 			// Tên file gốc tại Client.
 		String imageLink = fileDatas.getOriginalFilename();
-		
-		
-		
-
 		if (hangDAO.loadHangTheoTen(tenHang) == null) {
 			HangInfo hang = new HangInfo(maHang, tenHang, donGia, imageLink, vat, loai, nhaSX, ngaySX, tGBaoHanh,
 					ttThem, soLuong, trangThai);
