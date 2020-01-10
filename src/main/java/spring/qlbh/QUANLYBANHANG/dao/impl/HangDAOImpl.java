@@ -110,7 +110,7 @@ public class HangDAOImpl implements HangDAO {
 		session.update(hangentity);
 
 	}
-<<<<<<< HEAD
+
 //	@Override
 //	public HangInfo loadHangTheoTen(String tenHang) {
 //		Session session = sessionfactory.getCurrentSession();
@@ -142,7 +142,7 @@ public class HangDAOImpl implements HangDAO {
 	public void suaHang(int maHang) {
 		// TODO Auto-generated method stub
 		
-=======
+	}
 	@Override
 	public List<HangInfo> timKiemHangTheoTen(String tenHang) {
 		Session session = sessionfactory.getCurrentSession();
@@ -162,6 +162,6 @@ public class HangDAOImpl implements HangDAO {
 		Query query = session.createQuery(sql);
 		query.setParameter("tenNSX", "%"+tenNSX+"%");
 		return query.list();
->>>>>>> 954d58d93d679435b551805b586c1aff26b9ed8d
+
 	}
 }
