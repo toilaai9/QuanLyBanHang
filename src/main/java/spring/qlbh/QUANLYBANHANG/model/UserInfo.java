@@ -1,5 +1,6 @@
 package spring.qlbh.QUANLYBANHANG.model;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 public class UserInfo {
 	private int id;
@@ -10,6 +11,21 @@ public class UserInfo {
 	private String diaChi;
 	private String sDT;
 	private String loai;
+	private CommonsMultipartFile anhuser;
+	
+	public UserInfo(CommonsMultipartFile anhuser) {
+		super();
+		this.anhuser = anhuser;
+	}
+
+	public CommonsMultipartFile getAnhuser() {
+		return anhuser;
+	}
+
+	public void setAnhuser(CommonsMultipartFile anhuser) {
+		this.anhuser = anhuser;
+	}
+
 	public UserInfo() {
 		super();
 		// TODO Auto-generated constructor stub
