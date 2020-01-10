@@ -59,7 +59,7 @@
 									<c:forEach items="${listUser }" var="u">
 										<tr>
 											<td>${u.hoTen }</td>
-											<td><img src="" /></td>
+											<td><img style="max-width: 50px; height: 50px" src="${pageContext.request.contextPath}/template/client//img/${u.imageLink }" /></td>
 											<td>${u.diaChi }</td>
 											<td>${u.sDT }</td>
 											<td>${u.loai }</td>

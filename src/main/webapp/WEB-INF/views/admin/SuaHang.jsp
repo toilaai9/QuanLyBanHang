@@ -31,7 +31,7 @@
 								<div class="form-group">
 									<label>Đơn Giá</label>
 									<form:input path="donGia" class="form-control"
-										placeholder="Nhập đơn giá"  value="${hangtheoid.donGia }" id="donGia" />
+										placeholder="Nhập đơn giá" type="number" min="1"  value="${hangtheoid.donGia }" id="donGia" />
 								</div>
 							</div>
 						</div>
@@ -40,7 +40,7 @@
 								<div class="form-group">
 									<label>VAT</label>
 									<form:input path="vAT" class="form-control"
-										placeholder="Nhập VAT"  value="${hangtheoid.vAT }" id="vAT" />
+										placeholder="Nhập VAT" type="number" min="0"  value="${hangtheoid.vAT }" id="vAT" />
 								</div>
 							</div>
 
@@ -69,7 +69,7 @@
 								<div class="form-group">
 									<label>Ngày Sản Xuất</label>
 									<form:input path="ngaySX" class="form-control"
-										placeholder="Nhập ngày sản xuất"  value="${hangtheoid.ngaySX }" id="ngaySX" />
+										placeholder="mm-dd-yyyy"  value="${hangtheoid.ngaySX }" id="ngaySX" />
 
 								</div>
 							</div>
@@ -79,7 +79,7 @@
 								<div class="form-group">
 									<label>Số Lượng</label>
 									<form:input path="soLuongHang" class="form-control"
-										placeholder="Nhập số lượng"  value="${hangtheoid.soLuongHang }" id="soLuongHang" />
+										placeholder="Nhập số lượng" type="number" min="1"  value="${hangtheoid.soLuongHang }" id="soLuongHang" />
 
 								</div>
 							</div>

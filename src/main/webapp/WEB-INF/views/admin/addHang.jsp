@@ -30,7 +30,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>Đơn Giá</label>
-									<form:input path="donGia" class="form-control"
+									<form:input path="donGia" type="number" min="1" class="form-control"
 										placeholder="Nhập đơn giá" id="donGia" />
 								</div>
 							</div>
@@ -39,7 +39,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>VAT</label>
-									<form:input path="vAT" class="form-control"
+									<form:input path="vAT" type="number" min="0"   class="form-control"
 										placeholder="Nhập VAT" id="vAT" />
 								</div>
 							</div>
@@ -69,7 +69,7 @@
 								<div class="form-group">
 									<label>Ngày Sản Xuất</label>
 									<form:input path="ngaySX" class="form-control"
-										placeholder="Nhập ngày sản xuất" id="ngaySX" />
+										placeholder="mm-dd-yyyy" id="ngaySX" />
 
 								</div>
 							</div>
@@ -78,7 +78,7 @@
 							<div class="col-sm-6">
 								<div class="form-group">
 									<label>Số Lượng</label>
-									<form:input path="soLuongHang" class="form-control"
+									<form:input path="soLuongHang" type="number" min="1"  class="form-control"
 										placeholder="Nhập số lượng" id="soLuongHang" />
 
 								</div>

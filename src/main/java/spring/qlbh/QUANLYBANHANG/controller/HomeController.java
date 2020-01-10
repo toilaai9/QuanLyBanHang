@@ -157,7 +157,7 @@ public class HomeController {
 			String loai=us.getLoai();
 			if(loai.equals("0")) {
 				session.setAttribute("checkUser", us);
-				request = "redirect:/admin";	
+				request = "redirect:/admin/hang";	
 			} else {
 				session.setAttribute("checkUser",us);
 				request = "redirect:/";
