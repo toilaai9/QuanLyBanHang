@@ -18,28 +18,28 @@
 						<!-- Billing Details -->
 						<div class="billing-details">
 							<div class="section-title">
-								<h3 class="title">Billing address</h3>
+								<h3 class="title">Thông tin giao hàng</h3>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="tennguoinhan" placeholder="Tên người nhận">
+								<input class="input" type="text" name="tennguoinhan" placeholder="Tên người nhận" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="email" name="email" placeholder="Email" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="tel" name="sdt" placeholder="Số điện thoại">
+								<input class="input" type="tel" name="sdt" placeholder="Số điện thoại" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="tinhthanhpho" placeholder="Tỉnh/Thành Phố">
+								<input class="input" type="text" name="tinhthanhpho" placeholder="Tỉnh/Thành Phố" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="quanhuyen" placeholder="Quận/Huyện">
+								<input class="input" type="text" name="quanhuyen" placeholder="Quận/Huyện" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="phuongxa" placeholder="Phường/Xã">
+								<input class="input" type="text" name="phuongxa" placeholder="Phường/Xã" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="diachinhan" placeholder="Địa chỉ nhận hàng">
+								<input class="input" type="text" name="diachinhan" placeholder="Địa chỉ nhận hàng" required>
 							</div>
 							
 						</div>
@@ -48,7 +48,7 @@
 
 						<!-- Order notes -->
 						<div class="order-notes">
-							<textarea class="input" name="ghichu" placeholder="Ghi chú"></textarea>
+							<textarea class="input" name="ghichu" placeholder="Ghi chú" required></textarea>
 						</div>
 						<!-- /Order notes -->
 					</div>
@@ -56,7 +56,7 @@
 					<!-- Order Details -->
 					<div class="col-md-5 order-details">
 						<div class="section-title text-center">
-							<h3 class="title">Your Order</h3>
+							<h3 class="title">Đơn hàng</h3>
 						</div>
 						<div class="order-summary">
 							<div class="order-col">
@@ -82,7 +82,7 @@
 								<div><strong class="order-total"><fmt:formatNumber type="currency" value="${total }" /></strong></div>
 							</div>
 						</div>
-						<button type="submit" name="submit" class="btn btn-success float-left"> Hoàn thành</button>
+						<button type="submit" name="submit" class="btn btn-success float-left" "> Hoàn thành</button>
 						
 					</div>
 					<!-- /Order Details -->

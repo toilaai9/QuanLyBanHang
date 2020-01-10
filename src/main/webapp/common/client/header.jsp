@@ -116,14 +116,13 @@
 						<!-- Cart -->
 						<div class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown"
-								aria-expanded="true"> <i class="fa fa-shopping-cart"></i> <span>Your
-									Cart</span>
+								aria-expanded="true"> <i class="fa fa-shopping-cart"></i> <span>Giỏ Hàng Của Bạn</span>
 								<div class="qty">${sl }</div>
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
 									<c:if test="${sl == 0}">
-										<h4>ko có sp</h4>
+										<h4>không có sản phẩm trong giỏ hàng vui lòng hãy mua thêm!</h4>
 									</c:if>
 									<c:forEach var="item" items="${sessionScope.cart }">
 										<c:set var="total"
@@ -165,7 +164,7 @@
 								</div>
 								<div class="cart-btns">
 								<c:if test="${sl == 0}">
-										<a href="#">Xem giỏ
+										<a href="#" onclick="return alert('Chưa có hàng trong giỏ hãy mua một món!')">Xem giỏ
 										hàng</a>
 									</c:if>
 									<c:if test="${sl != 0}">
@@ -173,22 +172,16 @@
 										hàng</a>
 									</c:if>
 									 <c:if test="${sl != 0}">
-										<c:if test="${checkUser != null }">
 										<a href="${pageContext.request.contextPath}/thanhtoan">Thanh
 										toán <i class="fa fa-arrow-circle-right"></i>
 									</a>
 									</c:if>
-									</c:if>
 									 <c:if test="${sl == 0}">
-										<c:if test="${checkUser != null }">
-										<a href="#">Thanh
+										<a href="#" onclick="return alert('Chưa có hàng trong giỏ hãy mua một món!')">Thanh
 										toán <i class="fa fa-arrow-circle-right"></i>
 									</a>
 									</c:if>
-									</c:if>
-									<c:if test="${checkUser == null }"><a href="${pageContext.request.contextPath}/" onclick="return alert('Vui lòng đăng nhập để thanh toán!')">Thanh
-										toán <i class="fa fa-arrow-circle-right"></i>
-									</a></c:if>
+									
 								</div>
 							</div>
 						</div>
@@ -252,7 +245,7 @@
 						<h3>
 							Laptop<br>Collection
 						</h3>
-						<a href="#" class="cta-btn">Shop now <i
+						<a data-toggle="tab" href="#4" class="cta-btn">Shop now <i
 							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
@@ -264,14 +257,14 @@
 				<div class="shop">
 					<div class="shop-img">
 						<img
-							src="${pageContext.request.contextPath}/template/client/img/shop03.png"
+							src="${pageContext.request.contextPath}/template/client/img/dt45.jpg"
 							alt="">
 					</div>
 					<div class="shop-body">
 						<h3>
-							Accessories<br>Collection
+							Điện thoại<br>Collection
 						</h3>
-						<a href="#" class="cta-btn">Shop now <i
+						<a data-toggle="tab" href="#3" class="cta-btn">Shop now <i
 							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
@@ -283,14 +276,14 @@
 				<div class="shop">
 					<div class="shop-img">
 						<img
-							src="${pageContext.request.contextPath}/template/client/img/shop02.png"
+							src="${pageContext.request.contextPath}/template/client/img/tivi3.jpg"
 							alt="">
 					</div>
 					<div class="shop-body">
 						<h3>
-							Cameras<br>Collection
+							Tivi<br>Collection
 						</h3>
-						<a href="#" class="cta-btn">Shop now <i
+						<a data-toggle="tab" href="#1" class="cta-btn">Shop now <i
 							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
