@@ -58,6 +58,9 @@ public class HomeController {
 		List<HangInfo> hangMayTinh = hangDAO.loadHangTheoLoai(4);
 		List<HangInfo> hangTuLanh = hangDAO.loadHangTheoLoai(7);
 		List<HangInfo> hangMayQuat = hangDAO.loadHangTheoLoai(9);
+		List<HangInfo> hangLG = hangDAO.timKiemHangTheoTen("LG");
+		List<HangInfo> hangSAMSUNG = hangDAO.timKiemHangTheoTen("SAMSUNG");
+		List<HangInfo> hangIPHONE = hangDAO.timKiemHangTheoTen("IPHONE");
 			
 		model.addAttribute("tivi", hangTivi);
 		model.addAttribute("tainghe", hangTaiNghe);
@@ -67,6 +70,9 @@ public class HomeController {
 		model.addAttribute("mayquat", hangMayQuat);
 		model.addAttribute("hang", hang);
 		model.addAttribute("loaiHang", loaiHang);
+		model.addAttribute("hangLG", hangLG);
+		model.addAttribute("hangSAMSUNG", hangSAMSUNG);
+		model.addAttribute("hangIPHONE", hangIPHONE);
 		return "Index";
 	}
 	@RequestMapping("/cart")
@@ -91,6 +97,13 @@ public class HomeController {
 	@RequestMapping("/thanhtoan")
 	public String thanhToan(Model model) {
 		return "ThanhToan";
+	}
+	@RequestMapping(value = "/timkiem", method = RequestMethod.GET)
+	public String timKiem(Model model,HttpServletRequest request, HttpSession session) {
+		String tukhoa=request.getParameter("tukhoa");
+		List<HangInfo> tkh = hangDAO.timKiemHangTheoTen(tukhoa);
+		model.addAttribute("tkh", tkh);
+		return "TimKiem";
 	}
 	@RequestMapping(value = "/thanhtoan/hoantat", method = RequestMethod.POST)
 	public String hoanTat(Model model,HttpServletRequest request, HttpSession session) {

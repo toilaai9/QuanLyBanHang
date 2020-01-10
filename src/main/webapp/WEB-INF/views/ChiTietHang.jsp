@@ -12,7 +12,7 @@
 		<div class="container">
 			<!-- row -->
 			<div class="row">
-			<c:if test="${hang_chitiet != null}" >
+				<c:if test="${hang_chitiet != null}">
 					<div class="col-md-5 col-md-push-2">
 						<div id="product-main-img">
 							<div class="product-preview">
@@ -87,35 +87,35 @@
 							</div>
 							<div>
 								<h3 class="product-price">
-									<fmt:formatNumber type="currency" value="${hang_chitiet.donGia }" />
+									<fmt:formatNumber type="currency"
+										value="${hang_chitiet.donGia }" />
 								</h3>
-								<c:if test="${hang_chitiet.trangThaiHang == 0 }">
-									<span class="product-available">Còn Hàng</span>
-								</c:if>
-								<c:if test="${hang_chitiet.trangThaiHang == 1 }">
+								<c:if test="${hang_chitiet.soLuongHang < 1 }">
 									<span class="product-available">Hết Hàng</span>
+								</c:if>
+								<c:if test="${hang_chitiet.soLuongHang > 0 }">
+									<span class="product-available">Còn Hàng</span>
 								</c:if>
 							</div>
 							<p>${hang_chitiet.tTThem }</p>
 
 
 							<div class="add-to-cart">
-								
-								<c:if test="${hang_chitiet.trangThaiHang == 0 }">
-									<a href="${pageContext.request.contextPath}/buy/${hang_chitiet.maHang }">
-										<button class="add-to-cart-btn">
-											<i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
-										</button>
-									</a>
-									</span>
-								</c:if>
-								<c:if test="${hang_chitiet.trangThaiHang == 1 }">
+
+								<c:if test="${hang_chitiet.soLuongHang < 1 }">
 									<a href="#">
 										<button class="add-to-cart-btn">
+											<i class="fa fa-shopping-cart"></i> Hết Hàng
+										</button>
+									</a>
+								</c:if>
+								<c:if test="${hang_chitiet.soLuongHang > 0 }">
+									<a
+										href="${pageContext.request.contextPath}/buy/${hang_chitiet.maHang }">
+										<button class="add-to-cart-btn">
 											<i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng
 										</button>
 									</a>
-									</span>
 								</c:if>
 							</div>
 						</div>
