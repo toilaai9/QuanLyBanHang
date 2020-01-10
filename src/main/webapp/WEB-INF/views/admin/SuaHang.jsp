@@ -5,7 +5,7 @@
 <div class="container margin_60" style="width: 608px;">
 	<section class="content-header">
 		<div>
-			<h1>THÊM HÀNG</h1>
+			<h1>SỬA THÔNG TIN HÀNG</h1>
 		</div>
 	</section>
 	<section class="content">
@@ -14,8 +14,8 @@
 				<div class="">
 
 					<!-- MyUploadForm -->
-					<form:form modelAttribute="hangInfo" method="POST"
-						action="${pageContext.request.contextPath}/admin/hang/addhang/them"
+					<form:form modelAttribute="suaHangInfo" method="POST"
+						action="${pageContext.request.contextPath}/admin/hang/suahang/hoanthanh/${hangtheoid.maHang }"
 						enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-sm-6">
@@ -23,7 +23,7 @@
 									<label>Tên Hàng</label>
 
 									<form:input path="tenHang" class="form-control"
-										placeholder="Nhập tên hàng" id="tenHang" />
+										placeholder="Nhập tên hàng" value="${hangtheoid.tenHang }" id="tenHang" />
 
 								</div>
 							</div>
@@ -31,7 +31,7 @@
 								<div class="form-group">
 									<label>Đơn Giá</label>
 									<form:input path="donGia" class="form-control"
-										placeholder="Nhập đơn giá" id="donGia" />
+										placeholder="Nhập đơn giá"  value="${hangtheoid.donGia }" id="donGia" />
 								</div>
 							</div>
 						</div>
@@ -40,7 +40,7 @@
 								<div class="form-group">
 									<label>VAT</label>
 									<form:input path="vAT" class="form-control"
-										placeholder="Nhập VAT" id="vAT" />
+										placeholder="Nhập VAT"  value="${hangtheoid.vAT }" id="vAT" />
 								</div>
 							</div>
 
@@ -48,7 +48,7 @@
 								<div class="form-group">
 									<label>Loại Hàng</label>  
 									<form:select path="maLoai" class="form-control custom-select">
-										<form:options items="${loaiHang}" itemLabel="tenLoai"
+										<form:options items="${loai}" itemLabel="tenLoai"
 											itemValue="maLoai" />
 									</form:select>
 
@@ -61,7 +61,7 @@
 								<div class="form-group">
 									<label>Nhà Sản Xuất</label>
 									<form:input path="nhaSX" class="form-control"
-										placeholder="Nhập tên nhà sản xuất" id="nhaSX" />
+										placeholder="Nhập tên nhà sản xuất"  value="${hangtheoid.nhaSX }" id="nhaSX" />
 
 								</div>
 							</div>
@@ -69,7 +69,7 @@
 								<div class="form-group">
 									<label>Ngày Sản Xuất</label>
 									<form:input path="ngaySX" class="form-control"
-										placeholder="Nhập ngày sản xuất" id="ngaySX" />
+										placeholder="Nhập ngày sản xuất"  value="${hangtheoid.ngaySX }" id="ngaySX" />
 
 								</div>
 							</div>
@@ -79,7 +79,7 @@
 								<div class="form-group">
 									<label>Số Lượng</label>
 									<form:input path="soLuongHang" class="form-control"
-										placeholder="Nhập số lượng" id="soLuongHang" />
+										placeholder="Nhập số lượng"  value="${hangtheoid.soLuongHang }" id="soLuongHang" />
 
 								</div>
 							</div>
@@ -99,7 +99,7 @@
 									<label>Thông Tin Thêm</label>
 									
 									<form:textarea path="tTThem" id="tTThem" class="form-control" style="height: 150px;"
-											placeholder="Nhập giới thiệu về hàng"/>
+											placeholder="Nhập giới thiệu về hàng"  value="${hangtheoid.tTThem}"/>
 									
 								</div>
 							</div>
@@ -109,7 +109,7 @@
 								<div class="form-group">
 									<label>Thời Gian BH</label>
 									<form:input path="tGBaoHanh" class="form-control"
-										placeholder="Nhập thời gian bảo hàng" id="tGBaoHanh" />
+										placeholder="Nhập thời gian bảo hàng" value="${hangtheoid.tGBaoHanh}" id="tGBaoHanh" />
 
 								</div>
 							</div>
@@ -124,8 +124,9 @@
 						</div>
 						<div class="row" style="margin-top: 10px">
 							<div class="col-sm-6">
-								<button type="submit" id=""
-									class="btn btn-primary" >Thêm</button>
+							
+								<button type="submit" id="btn-them-truyen"
+									class="btn btn-primary" >Sửa</button>
 
 								<a href="${pageContext.request.contextPath}/admin/hang" class="btn btn-info "> <span></span> Cancel
 								</a>

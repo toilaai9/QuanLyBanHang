@@ -120,4 +120,26 @@ public class HangDAOImpl implements HangDAO {
 //		query.setParameter("tenHang", tenHang);
 //		return (HangInfo) query.uniqueResult();
 //	}
+
+	@Override
+	public void xoaHang(int maHang) {
+		Hang hang = this.findHang(maHang);
+		if (hang != null) {
+			this.sessionfactory.getCurrentSession().delete(hang);
+		}
+	}
+
+	@Override
+	public Hang findHang(int maHang) {
+		Session session = sessionfactory.getCurrentSession();
+		Criteria crit = session.createCriteria(Hang.class);
+		crit.add(Restrictions.eq("maHang", maHang));
+		return (Hang) crit.uniqueResult();
+	}
+
+	@Override
+	public void suaHang(int maHang) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -33,6 +33,7 @@
 					<th></th>
 				</tr>
 			</thead>
+			
 			<tbody>
 				<c:forEach items="${loadHang}" var="h">
 					<tr>
@@ -43,19 +44,22 @@
 						<td>${h.donGia }</td>
 						<td>${h.soLuongHang }</td>
 						<td>${h.trangThaiHang }</td>
-						<td><a href="#">
+						<td><a href="${pageContext.request.contextPath}/admin/hang/suahang/${h.maHang }">
 								<button data-toggle="tooltip"
 									style="border: 2px solid lightgrey; border-radius: 5px;"
 									data-original-title="Sửa">
 									<i class="fa fa-edit" aria-hidden="true"></i>
 								</button>
 						</a>
-							<button data-toggle="tooltip"
-								onclick="deleteRowHang('.${h.maHang}.')"
+						<a href="${pageContext.request.contextPath}/admin/hang/xoahang?maHang=${h.maHang }" onclick="
+							return confirm('Bạn có chắc chắn muốn xóa mặt hàng này không? ')">
+						<button data-toggle="tooltip"
 								style="border: 2px solid lightgrey; border-radius: 5px;"
 								data-original-title="Xóa">
 								<i class="fa fa-trash" aria-hidden="true"></i>
-							</button></td>
+							</button>
+						</a>
+							</td>
 					</tr>
 				</c:forEach>
 			</tbody>

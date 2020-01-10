@@ -34,7 +34,7 @@
 						<td>${dh.tenNguoiNhan}</td>
 						<td>${dh.diaChiNhanHang}</td>
 						<td>${dh.sDT}</td>
-						<td>${dh.tongTien}</td>
+						<td><fmt:formatNumber type="currency" value="${dh.tongTien}" /></td>
 
 						<td><a
 							href="${pageContext.request.contextPath}/admin/donhang/xemdonhang?maDH=${dh.maDH }"

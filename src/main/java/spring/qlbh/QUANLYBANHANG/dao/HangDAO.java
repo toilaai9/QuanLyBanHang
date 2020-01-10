@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import spring.qlbh.QUANLYBANHANG.entity.Hang;
 import spring.qlbh.QUANLYBANHANG.model.HangInfo;
 
 
@@ -15,5 +16,8 @@ public interface HangDAO {
 	public HangInfo loadHangTheoId(int maHang);
 	public void insertHang(HangInfo hangInfo);
 	public void uploadHang(HangInfo hangInfo);
+	public Hang findHang(int maHang);
+	public void xoaHang(int maHang);
+	public void suaHang(int maHang);
 	
 }

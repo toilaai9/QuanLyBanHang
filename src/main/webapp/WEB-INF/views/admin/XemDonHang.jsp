@@ -21,6 +21,7 @@
 			</div>
 		</div>
 	</div>
+	
 	<div class="table">
 		<table class="table">
 			<thead>
@@ -46,5 +47,6 @@
 			</c:forEach>
 			</tbody>
 		</table>
+		
 	</div>
 </div>

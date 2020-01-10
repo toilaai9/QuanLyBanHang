@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
@@ -50,13 +51,61 @@ public class QuanLyHangController {
 		}
 	}
 
-//	@RequestMapping("/delete")
-//	public String deleteHang(Model model, HttpServletRequest request,HttpSession session ) {
-//		int id= Integer.parseInt(request.getParameter("id"));
-////		hangDAO.xoaHangÌ£Ì£Ì£Ì£Ì£(id);
-//		session.setAttribute("mess", "Xoa thanh cong!");
-//		return "admin";
-//	}
+	@RequestMapping("/suahang/{maHang}")
+	public String suaHang(@PathVariable("maHang") int maHang, Model model, HttpServletRequest request,
+			@ModelAttribute("suaHangInfo") HangInfo suaHangInfo) {
+		List<LoaiHangInfo> loai = loaiHangDAO.loadMenu();
+		model.addAttribute("loai", loai);
+		HangInfo hang = hangDAO.loadHangTheoId(maHang);
+		model.addAttribute("hangtheoid", hang);
+
+		return "admin/SuaHang";
+
+	}
+
+	@RequestMapping("/suahang/hoanthanh/{maHang}")
+	public String hoanThanh(@PathVariable("maHang") int maHang, Model model, HttpServletRequest request,
+			@ModelAttribute("suaHangInfo") HangInfo suaHangInfo) {
+
+		boolean kt = false;
+
+		String tenHang = suaHangInfo.getTenHang();
+		int donGia = suaHangInfo.getDonGia();
+		float vat = suaHangInfo.getvAT();
+		int loaiHang = suaHangInfo.getMaLoai();
+		String nhaSX = suaHangInfo.getNhaSX();
+
+		String ttThem = suaHangInfo.gettTThem();
+		int soLuong = suaHangInfo.getSoLuongHang();
+		int trangThai = suaHangInfo.getTrangThaiHang();
+		String tGBaoHanh = suaHangInfo.gettGBaoHanh();
+		String ngaySX = suaHangInfo.getNgaySX();
+
+		CommonsMultipartFile fileDatas = suaHangInfo.getAnh();
+
+		// Tên file gốc tại Client.
+		String imageLink = fileDatas.getOriginalFilename();
+
+		HangInfo suahang = new HangInfo(maHang, tenHang, donGia, imageLink, vat, loaiHang, nhaSX, ngaySX, tGBaoHanh,
+				ttThem, soLuong, trangThai);
+		// call goi ham sua
+		hangDAO.uploadHang(suahang);
+		// call up file.
+		doUpload(request, suaHangInfo);
+		kt = true;
+
+		return "redirect:/admin/hang";
+
+	}
+
+	@RequestMapping("/xoahang")
+	public String deleteHang(Model model, HttpServletRequest request, HttpSession session) {
+		int maHang = Integer.parseInt(request.getParameter("maHang"));
+		hangDAO.xoaHang(maHang);
+		return "redirect:/admin/hang";
+
+	}
+
 	@RequestMapping(value = "/addhang")
 	public String themhang(Model model) {
 		List<LoaiHangInfo> loaiHang = loaiHangDAO.loadMenu();
@@ -84,17 +133,17 @@ public class QuanLyHangController {
 		int trangThai = hangInfo.getTrangThaiHang();
 		String tGBaoHanh = hangInfo.gettGBaoHanh();
 		String ngaySX = hangInfo.getNgaySX();
-		
+
 		CommonsMultipartFile fileDatas = hangInfo.getAnh();
 
-			// Tên file gốc tại Client.
+		// Tên file gốc tại Client.
 		String imageLink = fileDatas.getOriginalFilename();
 		if (hangDAO.loadHangTheoTen(tenHang) == null) {
 			HangInfo hang = new HangInfo(maHang, tenHang, donGia, imageLink, vat, loai, nhaSX, ngaySX, tGBaoHanh,
 					ttThem, soLuong, trangThai);
-			//call goi ham insert
+			// call goi ham insert
 			hangDAO.insertHang(hang);
-			//call up file.
+			// call up file.
 			doUpload(request, hangInfo);
 			kt = true;
 		} else {
