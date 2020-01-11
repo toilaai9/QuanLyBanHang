@@ -38,84 +38,109 @@
 	display: unset;
 }
 </style>
-
-	<section class="cart_area">
-		<div class="container">
-			<div class="cart_inner">
-				<div class="table-responsive">
-					<table class="table">
-						<thead>
-							<tr>
-
-								<th scope="col">Sản Phẩm</th>
-								<th scope="col">Giá</th>
-								<th scope="col">Số Lượng</th>
-								<th scope="col">Tổng Giá</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach var="item" items="${sessionScope.cart }">
+	<c:set var="sl" value="0"></c:set>
+	<c:forEach var="item" items="${sessionScope.cart }">
+		<c:set var="sl" value="${sl + 1 }"></c:set>
+	</c:forEach>
+	<div style="padding-left:400px;">
+	<c:if test="${sl == 0 }">
+		<a href="${pageContext.request.contextPath}/"><h3>Không có
+				hàng trong giỏ vui lòng hay mua thêm!!</h3></a>
+	</c:if>
+	</div>
+	<c:if test="${sl != 0 }">
+		<section class="cart_area">
+			<div class="container">
+				<div class="cart_inner">
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
 								<tr>
 
-									<td>
-										<div class="media">
-											<div class="col-md-6">
-												<div>
-													<img style="height: 150px;" src="${pageContext.request.contextPath}/template/client/img/${item.hang.imageLink }">
+									<th scope="col">Sản Phẩm</th>
+									<th scope="col">Giá</th>
+									<th scope="col">Số Lượng</th>
+									<th scope="col">Tổng Giá</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach var="item" items="${sessionScope.cart }">
+									<tr>
+
+										<td>
+											<div class="media">
+												<div class="col-md-6">
+													<div>
+														<img style="height: 150px;"
+															src="${pageContext.request.contextPath}/template/client/img/${item.hang.imageLink }">
+													</div>
+												</div>
+												<div class="col-md-6"
+													style="padding-top: 60px; padding-bottom: 30px; vertical-align: middle; align-self: center;">
+													${item.hang.tenHang }</div>
+										</td>
+
+										<td style="padding-top: 70px;">
+											<h5 id="" data-id="">
+												<fmt:formatNumber type="currency"
+													value="${item.hang.donGia }" />
+											</h5>
+										</td>
+										<td style="padding-top: 50px;">
+											<div class="qty-label">
+												<div class="input-number">
+													<input style="width: 80px;" type="number"
+														value="${item.soLuong }" readonly> <a
+														href="${pageContext.request.contextPath}/buy/${item.hang.maHang }">
+														<span class="qty-up">+</span>
+													</a> <a
+														href="${pageContext.request.contextPath}/minus/${item.hang.maHang }">
+														<span class="qty-down">-</span>
+													</a>
 												</div>
 											</div>
-											<div class="col-md-6" style="padding-top: 60px; padding-bottom: 30px; vertical-align: middle; align-self: center;">
-											${item.hang.tenHang }
-											</div>
-									</td>
-
-									<td style="padding-top: 70px;">
-										<h5 id="" data-id=""><fmt:formatNumber type="currency" value="${item.hang.donGia }" /></h5>
-									</td>
-									<td style="padding-top: 50px;">
-										<div class="qty-label">
-											<div class="input-number">
-												<input style="width: 80px;" type="number" value="${item.soLuong }" readonly> 
-												<a href="${pageContext.request.contextPath}/buy/${item.hang.maHang }">
-												<span class="qty-up">+</span> </a>
-												<a href="${pageContext.request.contextPath}/minus/${item.hang.maHang }">
-												<span class="qty-down">-</span></a>
-											</div>
-										</div>
-									</td>
-									<td style="padding-top: 70px;">
-										<h5 id="tt_"><fmt:formatNumber type="currency" value="${item.hang.donGia*item.soLuong }" /> </h5>
-									</td>
-									<td style="padding-top: 53px;"><span><a
-												href="${pageContext.request.contextPath}/remove/${item.hang.maHang }" onclick="return confirm('Bạn có muốn xóa khỏi giỏ hàng?')"><button class="delete_product" type="button" id="delete_product" data-id="" value="">
-												<i class="fa fa-trash"></i>
-											</button>
-											</a>
-										</span>
-									</td>
-								</tr>
+										</td>
+										<td style="padding-top: 70px;">
+											<h5 id="tt_">
+												<fmt:formatNumber type="currency"
+													value="${item.hang.donGia*item.soLuong }" />
+											</h5>
+										</td>
+										<td style="padding-top: 53px;"><span><a
+												href="${pageContext.request.contextPath}/remove/${item.hang.maHang }"
+												onclick="return confirm('Bạn có muốn xóa khỏi giỏ hàng?')"><button
+														class="delete_product" type="button" id="delete_product"
+														data-id="" value="">
+														<i class="fa fa-trash"></i>
+													</button> </a> </span></td>
+									</tr>
 								</c:forEach>
-								<tr class="bottom_button" >
-									<td ><a class="gray_btn" id="delete_cart" data-id=""
-										href="${pageContext.request.contextPath}">Tiếp Tục Mua Hàng</a></td>
+								<tr class="bottom_button">
+									<td><a class="gray_btn" id="delete_cart" data-id=""
+										href="${pageContext.request.contextPath}">Tiếp Tục Mua
+											Hàng</a></td>
 									<td></td>
 									<td></td>
 									<td>
 										<div>
-									<a class="primary-btn" id="thanhtoan" href="${pageContext.request.contextPath}/thanhtoan">Thanh Toán</a>
+											<a class="primary-btn" id="thanhtoan"
+												href="${pageContext.request.contextPath}/thanhtoan">Thanh
+												Toán</a>
 
 										</div>
 									</td>
 									<td></td>
 								</tr>
-							
-						</tbody>
-					</table>
+
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	</c:if>
+
 	<!--================End Cart Area =================-->
 	<script
 		src="${pageContext.request.contextPath}/template/client/js/vendor/jquery-2.2.4.min.js"></script>

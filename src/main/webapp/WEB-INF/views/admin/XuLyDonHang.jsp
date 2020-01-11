@@ -21,6 +21,7 @@
 			<thead>
 				<tr>
 					<th>Tên Người Nhận</th>
+					<th>Ngày Mua</th>
 					<th>Địa Chỉ Nhận Hàng</th>
 					<th>Số Điện Thoại</th>
 					<th>Tổng Tiền</th>
@@ -32,6 +33,7 @@
 				<c:forEach items="${donHang}" var="dh">
 					<tr>
 						<td>${dh.tenNguoiNhan}</td>
+						<td>${dh.ngayDatHang}</td>
 						<td>${dh.diaChiNhanHang}</td>
 						<td>${dh.sDT}</td>
 						<td><fmt:formatNumber type="currency" value="${dh.tongTien}" /></td>

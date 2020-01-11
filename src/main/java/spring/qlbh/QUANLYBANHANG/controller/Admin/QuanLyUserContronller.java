@@ -10,7 +10,7 @@ import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;==
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -41,7 +41,7 @@ public class QuanLyUserContronller {
 
 		if (target.getClass() == UserInfo.class) {
 
-			// Đăng ký để chuyển đổi giữa các đối tượng multipart thành byte[]
+			// Ä�Äƒng kÃ½ Ä‘á»ƒ chuyá»ƒn Ä‘á»•i giá»¯a cÃ¡c Ä‘á»‘i tÆ°á»£ng multipart thÃ nh byte[]
 			dataBinder.registerCustomEditor(byte[].class, new ByteArrayMultipartFileEditor());
 		}
 	}
@@ -76,7 +76,7 @@ public class QuanLyUserContronller {
 
 		CommonsMultipartFile fileDatas = userInfo.getAnhuser();
 
-		// Tên file gốc tại Client.
+		// TÃªn file gá»‘c táº¡i Client.
 		String img = fileDatas.getOriginalFilename();
 
 		UserInfo user = new UserInfo(id, userName, password, hoTen, img, diaChi, sDT, loai);
@@ -92,13 +92,13 @@ public class QuanLyUserContronller {
 	private void doUpload(HttpServletRequest request, //
 			UserInfo userInfo) {
 
-// Thư mục gốc upload file.
+// ThÆ° má»¥c gá»‘c upload file.
 		String uploadRootPath = request.getServletContext().getRealPath("/") + "template/client/img";
 		System.out.println("uploadRootPath=" + uploadRootPath);
 
 		File uploadRootDir = new File(uploadRootPath);
 //
-// Tạo thư mục gốc upload nếu nó không tồn tại.
+// Táº¡o thÆ° má»¥c gá»‘c upload náº¿u nÃ³ khÃ´ng tá»“n táº¡i.
 		if (!uploadRootDir.exists()) {
 			uploadRootDir.mkdirs();
 		}
@@ -106,16 +106,16 @@ public class QuanLyUserContronller {
 //
 		List<File> uploadedFiles = new ArrayList<File>();
 
-// Tên file gốc tại Clientg
+// TÃªn file gá»‘c táº¡i Clientg
 		String name = fileDatas.getOriginalFilename();
 		System.out.println("Client File Name = " + name);
 
 		if (name != null && name.length() > 0) {
 			try {
-				// Tạo file tại Server.
+				// Táº¡o file táº¡i Server.
 				File serverFile = new File(uploadRootDir.getAbsolutePath() + File.separator + name);
 
-				// Luồng ghi dữ liệu vào file trên Server.
+				// Luá»“ng ghi dá»¯ liá»‡u vÃ o file trÃªn Server.
 				BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(serverFile));
 				stream.write(fileDatas.getBytes());
 				stream.close();

@@ -24,7 +24,7 @@
 					<th>Địa Chỉ Nhận Hàng</th>
 					<th>Số Điện Thoại</th>
 					<th>Tổng Tiền</th>
-
+					<th></th>
 				</tr>
 			</thead>
 
@@ -35,6 +35,10 @@
 						<td>${dh.diaChiNhanHang}</td>
 						<td>${dh.sDT}</td>
 						<td>${dh.tongTien}</td>
+						<td><a
+							href="${pageContext.request.contextPath}/admin/donhang/xemdonhang?maDH=${dh.maDH }"
+							class="btn btn-info " style="padding: 1px;">Xem</a> 
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

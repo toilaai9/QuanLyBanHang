@@ -35,7 +35,7 @@
 						<td>${dh.diaChiNhanHang}</td>
 						<td>${dh.sDT}</td>
 						<td>${dh.tongTien}</td>
-
+						
 						<td>
 							<a
 							href="${pageContext.request.contextPath}/admin/donhang/chothanhtoan/thanhtoan?maDH=${dh.maDH }" onclick="
@@ -49,7 +49,11 @@
 							<button type="submit" name="submit"
 								class="btn btn-success float-left"
 								style="background-color: #df2626; padding: 1px;">Đã Trả Về</button></a>
+								<a
+							href="${pageContext.request.contextPath}/admin/donhang/xemdonhang?maDH=${dh.maDH }"
+							class="btn btn-info " style="padding: 1px;">Xem</a> 
 								</td>
+								
 					</tr>
 				</c:forEach>
 			</tbody>

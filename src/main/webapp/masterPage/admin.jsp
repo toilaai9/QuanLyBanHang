@@ -75,7 +75,7 @@
 					href="<?php echo base_url()?>user/load_tt_user/"> <img src="#"
 						alt="" /> <span class="hidden-xs">${checkUser.hoTen}</span>
 				</a>
-				<li><a id="logout_btn" href="#" data-toggle="control-sidebar"><i
+				<li><a id="logout_btn" href="${pageContext.request.contextPath}/logout" data-toggle="control-sidebar"><i
 						style='margin-left: 10px; margin-right: 10px; font-size: 18px'
 						class="fas fa-sign-out-alt"></i></a></li>
 				</li>

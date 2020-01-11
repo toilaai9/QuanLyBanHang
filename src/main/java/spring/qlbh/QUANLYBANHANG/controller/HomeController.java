@@ -47,10 +47,12 @@ public class HomeController {
 	@Autowired
 	private DongDonHangDAO dongDonHangDAO;
 	private static Calendar cal;
+	//tran chủ
 	@RequestMapping("/")
 	public String indexPage(Model model) {
+		//load hang
 		List<HangInfo> hang = hangDAO.loadHang();
-		
+		//load hàng theo loai
 		List<LoaiHangInfo> loaiHang =loaiHangDAO.loadMenu();
 		List<HangInfo> hangTivi = hangDAO.loadHangTheoLoai(1);
 		List<HangInfo> hangTaiNghe = hangDAO.loadHangTheoLoai(2);
@@ -58,6 +60,7 @@ public class HomeController {
 		List<HangInfo> hangMayTinh = hangDAO.loadHangTheoLoai(4);
 		List<HangInfo> hangTuLanh = hangDAO.loadHangTheoLoai(7);
 		List<HangInfo> hangMayQuat = hangDAO.loadHangTheoLoai(9);
+		//load hàng theo NSX
 		List<HangInfo> hangLG = hangDAO.timKiemHangTheoTen("LG");
 		List<HangInfo> hangSAMSUNG = hangDAO.timKiemHangTheoTen("SAMSUNG");
 		List<HangInfo> hangIPHONE = hangDAO.timKiemHangTheoTen("IPHONE");
@@ -75,10 +78,12 @@ public class HomeController {
 		model.addAttribute("hangIPHONE", hangIPHONE);
 		return "Index";
 	}
+	//trang cart
 	@RequestMapping("/cart")
 	public String indexCart() {
 		return "cart";
 	}
+	//trang chi tiết
 	@RequestMapping("/chitiet")
 	public String chiTietHang(Model model, HttpServletRequest request) {
 		int maHang=Integer.parseInt(request.getParameter("id"));
@@ -86,18 +91,12 @@ public class HomeController {
 		model.addAttribute("hang_chitiet", hang);
 		return "ChiTietHang";
 	}
-	//cách khác
-	/*
-	 * @RequestMapping("/chitiet") public String chiTietHang1(Model model,
-	 * RequestParam("id") int maHang) {
-	 * 
-	 * // lấy đc id rồi đó. // có maHang roi ong viet cl sql là ok. return
-	 * "ChiTietHang"; }
-	 */
+	//trang thanh toán
 	@RequestMapping("/thanhtoan")
 	public String thanhToan(Model model) {
 		return "ThanhToan";
 	}
+	//trang tim kiếm
 	@RequestMapping(value = "/timkiem", method = RequestMethod.GET)
 	public String timKiem(Model model,HttpServletRequest request, HttpSession session) {
 		String tukhoa=request.getParameter("tukhoa");
@@ -105,8 +104,10 @@ public class HomeController {
 		model.addAttribute("tkh", tkh);
 		return "TimKiem";
 	}
+	//trang thanh toán hoàn tất
 	@RequestMapping(value = "/thanhtoan/hoantat", method = RequestMethod.POST)
 	public String hoanTat(Model model,HttpServletRequest request, HttpSession session) {
+		//thêm don hang
 		int maUser;
 		Random rand = new Random();
 		int maDonHang =rand.nextInt(1000);
@@ -135,7 +136,9 @@ public class HomeController {
 		int id=maUser;
 		DonHangInfo donhang=new DonHangInfo(maDonHang,ngayDatHang,tongTien,tenNguoiNhan,email,diaChiNhan,sDT,ghiChu,trangThai,id);
 		donHangDAO.insertDH(donhang);
+		//thay đổi trạng thái
 		DonHangInfo dh=donHangDAO.loadDonHangDT(maUser, 4);
+		//thêm dòng đơn hàng
 		for (GioHangInfo hg1 : gH) {
 			int maDongDonHang =rand.nextInt(1000);
 			DongDonHangInfo dongdonhang=new DongDonHangInfo(maDongDonHang,hg1.getSoLuong(),hg1.getHang().getMaHang(),dh.getMaDH());
@@ -146,8 +149,9 @@ public class HomeController {
 		}
 		donHangDAO.updateTrangThaiDH(dh, 0);
 		session.removeAttribute("cart");
-		return "redirect:/";
+		return "redirect:/thanhtoan/hoantat/hoadon";
 	}
+	//login
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPage(Model model, @RequestParam String userName,
 			@RequestParam String passWord, HttpSession session) {
@@ -164,14 +168,17 @@ public class HomeController {
 			}
 		}
 		else {
-			session.setAttribute("loginF","Tên đăng nhập và mật khẩu sai");
+			session.setAttribute("loginF","TÃªn Ä‘Äƒng nháº­p vÃ  máº­t kháº©u sai");
 			request="redirect:/";
 		}
+		session.removeAttribute("cart");
 		return request;
 	}
+	//Mua hàng
 	@RequestMapping(value = "/buy/{id}", method = RequestMethod.GET)
 	public String buy(@PathVariable("id") int id, HttpSession session) {
 		if (session.getAttribute("cart") == null) {
+			//Tạo giỏ hàng 
 			List<GioHangInfo> cart = new ArrayList<GioHangInfo>();
 			cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
 			session.setAttribute("cart", cart);
@@ -179,15 +186,21 @@ public class HomeController {
 			List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");
 			int index = this.exists(id, cart);
 			if (index == -1) {
+				//thêm hàng không có trong giỏ
 				cart.add(new GioHangInfo(hangDAO.loadHangTheoId(id), 1));
 			} else {
-				int quantity = cart.get(index).getSoLuong() + 1;
+				//thay đổi số lượng trong giỏ
+				int quantity = cart.get(index).getSoLuong();
+				if(quantity<10) {
+					quantity+=1;
+				}
 				cart.get(index).setSoLuong(quantity);
 			}
 			session.setAttribute("cart", cart);
 		}
 		return "redirect:/cart";
 	}
+	//giảm số luongj trong giỏ
 	@RequestMapping(value = "/minus/{id}", method = RequestMethod.GET)
 	public String minus(@PathVariable("id") int id, HttpSession session) {
 			List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");
@@ -199,6 +212,7 @@ public class HomeController {
 			session.setAttribute("cart", cart);
 		return "redirect:/cart";
 	}
+	//xóa hàng trong giỏ
 	@RequestMapping(value = "/remove/{id}", method = RequestMethod.GET)
 	public String remove(@PathVariable("id") int id, HttpSession session) {
 		List<GioHangInfo> cart = (List<GioHangInfo>) session.getAttribute("cart");
@@ -206,6 +220,18 @@ public class HomeController {
 		cart.remove(index);
 		session.setAttribute("cart", cart);
 		return "redirect:/cart";
+	}
+	//logout
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.removeAttribute("checkUser");
+		session.removeAttribute("cart");
+		return "redirect:/";
+	}
+	//hóa đơn
+	@RequestMapping(value = "/thanhtoan/hoantat/hoadon")
+	public String hoadon() {
+		return "HoaDon";
 	}
 	private int exists(int id, List<GioHangInfo> cart) {
 		for (int i = 0; i < cart.size(); i++) {

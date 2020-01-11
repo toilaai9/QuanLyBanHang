@@ -64,6 +64,7 @@
 				</c:if>
 <c:if test="${checkUser != null }">
 				<li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
+				<li><a href="${pageContext.request.contextPath}/logout"><i class="fa fa-user-o"></i> Logout</a></li>
 				</c:if>
 			</ul>
 		</div>
@@ -79,7 +80,7 @@
 				<!-- LOGO -->
 				<div class="col-md-3">
 					<div class="header-logo">
-						<a href="${pageContext.request.contextPath}" class="logo"> <img
+						<a href="${pageContext.request.contextPath}" class="logo"> <img style="height:100px"
 							src="${pageContext.request.contextPath}/template/client/img/logo.png"
 							alt="">
 						</a>
