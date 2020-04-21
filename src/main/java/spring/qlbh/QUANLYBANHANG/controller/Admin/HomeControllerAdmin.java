@@ -40,7 +40,7 @@ public class HomeControllerAdmin {
 	public String Hang(Model model) {
 		List<HangInfo> hang = hangDAO.loadHang();
 		model.addAttribute("loadHang", hang);	
-		return "admin/Hang";
+		return "admin/NewFile";
 	}
 	
 }
